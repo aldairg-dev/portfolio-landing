@@ -27,7 +27,10 @@ export default function Hero() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
                 <span className="block">Hola, soy</span>
-                <span className="text-primary">Desarrollador de Software</span>
+                <span className="block">Aldair Gutierrez</span>
+                <span className="text-primary block">
+                  Desarrollador de Software
+                </span>
               </h1>
             </motion.div>
 
