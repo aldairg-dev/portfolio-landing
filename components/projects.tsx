@@ -1,55 +1,46 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "Una plataforma de comercio electrónico completa con carrito de compras, pagos y gestión de pedidos.",
+    title: "StudentChoice",
+    description:
+      "Sistema de votación estudiantil desarrollado en Laravel, utilizando Jetstream, Livewire y Tailwind CSS, junto a PostgreSQL. Garantiza un proceso de votación seguro, eficiente y fácil de usar.",
     image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    tags: ["Laravel", "Jetstream", "Livewire", "Tailwind CSS", "PostgreSQL"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/2A2G/StudentChoice",
   },
   {
     id: 2,
-    title: "Dashboard Analytics",
-    description: "Panel de control para visualizar y analizar datos empresariales con gráficos interactivos.",
+    title: "E-Factura",
+    description:
+      "Sistema de facturación electrónica integrado con las API’s de Factus Halltec. Automatiza y optimiza la facturación cumpliendo con normativas legales vigentes.",
     image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+    tags: ["Laravel", "Jetstream", "Livewire", "Tailwind CSS", "PostgreSQL"],
     demoUrl: "#",
-    repoUrl: "#",
+    repoUrl: "https://github.com/2A2G/E-Factura",
   },
-  {
-    id: 3,
-    title: "App de Gestión de Tareas",
-    description: "Aplicación para gestionar tareas y proyectos con funcionalidades colaborativas.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React Native", "Firebase", "Redux", "Expo"],
-    demoUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Plataforma de Aprendizaje",
-    description: "Sistema de gestión de aprendizaje con cursos, evaluaciones y seguimiento de progreso.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Vue.js", "Laravel", "MySQL", "AWS"],
-    demoUrl: "#",
-    repoUrl: "#",
-  },
-]
+];
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-20 bg-muted/50">
@@ -63,8 +54,8 @@ export default function Projects() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Mis Proyectos</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Una selección de los proyectos más destacados en los que he trabajado, mostrando mis habilidades y
-            experiencia en desarrollo.
+            Una selección de los proyectos más destacados en los que he
+            trabajado, mostrando mis habilidades y experiencia en desarrollo.
           </p>
         </motion.div>
 
@@ -105,13 +96,21 @@ export default function Projects() {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Button asChild variant="outline" size="sm">
-                    <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" />
                       Código
                     </Link>
                   </Button>
                   <Button asChild size="sm">
-                    <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Demo
                     </Link>
@@ -123,6 +122,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
