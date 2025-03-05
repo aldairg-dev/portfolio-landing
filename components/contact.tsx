@@ -104,11 +104,11 @@ export default function Contact() {
                     <div>
                       <h3 className="font-medium">Email</h3>
                       <p className="text-sm text-muted-foreground">
-                        contacto@ejemplo.com
+                        aldairgguer@gmail.com
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  {/* <div className="flex items-center gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                         +1 234 567 890
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <MapPin className="h-6 w-6 text-primary" />
@@ -126,7 +126,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-medium">Ubicación</h3>
                       <p className="text-sm text-muted-foreground">
-                        Ciudad, País
+                        Cartagena, Col.
                       </p>
                     </div>
                   </div>
