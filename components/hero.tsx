@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -73,22 +73,12 @@ export default function Hero() {
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/aldair-gutierrez-guerrero"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
-                </Link>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <Link
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
                 </Link>
               </Button>
             </motion.div>

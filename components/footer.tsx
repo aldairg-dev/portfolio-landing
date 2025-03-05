@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Code, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Code, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,7 +12,9 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left">
-            <p className="text-muted-foreground">&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
+            <p className="text-muted-foreground">
+              &copy; {new Date().getFullYear()} Todos los derechos reservados.
+            </p>
           </div>
 
           <div className="flex gap-4">
@@ -26,7 +28,7 @@ export default function Footer() {
               <span className="sr-only">GitHub</span>
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/aldair-gutierrez-guerrero"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -35,16 +37,7 @@ export default function Footer() {
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="mailto:contacto@ejemplo.com"
+              href="mailto:aldairgguer@gmail.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-5 w-5" />
@@ -54,6 +47,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-
