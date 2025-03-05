@@ -1,85 +1,155 @@
-import * as React from "react"
+"use client";
+
+import * as React from "react";
 import {
-  Toast,
-  ToastClose,
+  ToastProps,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+} from "@radix-ui/react-toast";
+import { ToastClose as RadixToastClose } from "@radix-ui/react-toast"; // Asegúrate de que esta importación sea correcta
+
+const TOAST_LIMIT = 1;
+const TOAST_REMOVE_DELAY = 5000;
+
+export type ToasterToast = ToastProps & {
+  id: string;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  action?: React.ReactNode;
+};
+
+export const actionTypes = {
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
+} as const;
+
+let count = 0;
+export function genId() {
+  count = (count + 1) % Number.MAX_SAFE_INTEGER;
+  return count.toString();
+}
+
+type ActionType = typeof actionTypes;
+
+type Action =
+  | { type: ActionType["ADD_TOAST"]; toast: ToasterToast }
+  | { type: ActionType["UPDATE_TOAST"]; toast: Partial<ToasterToast> }
+  | { type: ActionType["DISMISS_TOAST"]; toastId?: string }
+  | { type: ActionType["REMOVE_TOAST"]; toastId?: string };
+
+export interface State {
+  toasts: ToasterToast[];
+}
+
+const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+
+export function addToRemoveQueue(toastId: string) {
+  if (toastTimeouts.has(toastId)) return;
+
+  const timeout = setTimeout(() => {
+    toastTimeouts.delete(toastId);
+    dispatch({ type: "REMOVE_TOAST", toastId });
+  }, TOAST_REMOVE_DELAY);
+
+  toastTimeouts.set(toastId, timeout);
+}
+
+export function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case "ADD_TOAST":
+      return {
+        ...state,
+        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+      };
+    case "UPDATE_TOAST":
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === action.toast.id ? { ...t, ...action.toast } : t
+        ),
+      };
+    case "DISMISS_TOAST":
+      const { toastId } = action;
+      if (toastId) addToRemoveQueue(toastId);
+      else state.toasts.forEach((toast) => addToRemoveQueue(toast.id));
+      return {
+        ...state,
+        toasts: state.toasts.map((t) =>
+          t.id === toastId || !toastId ? { ...t, open: false } : t
+        ),
+      };
+    case "REMOVE_TOAST":
+      return {
+        ...state,
+        toasts: action.toastId
+          ? state.toasts.filter((t) => t.id !== action.toastId)
+          : [],
+      };
+    default:
+      return state;
+  }
+}
+
+const listeners: Array<(state: State) => void> = [];
+let memoryState: State = { toasts: [] };
+
+export function dispatch(action: Action) {
+  memoryState = reducer(memoryState, action);
+  listeners.forEach((listener) => listener(memoryState));
+}
+
+export type Toast = Omit<ToasterToast, "id">;
+
+export function createToast(props: Toast) {
+  const id = genId();
+  const update = (props: ToasterToast) =>
+    dispatch({ type: "UPDATE_TOAST", toast: { ...props, id } });
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
+
+  dispatch({
+    type: "ADD_TOAST",
+    toast: {
+      ...props,
+      id,
+      open: true,
+      onOpenChange: (open) => !open && dismiss(),
+    },
+  });
+
+  return { id, dismiss, update };
+}
+
+export function useToast() {
+  const [state, setState] = React.useState<State>(memoryState);
+
+  React.useEffect(() => {
+    listeners.push(setState);
+    return () => {
+      const index = listeners.indexOf(setState);
+      if (index > -1) listeners.splice(index, 1);
+    };
+  }, []);
+
+  return {
+    ...state,
+    toast: createToast,
+    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+  };
+}
+
+// Componente ToastViewport
+function ToastViewport() {
+  return <div className="fixed bottom-4 right-4 w-96 space-y-2" />;
+}
+
+// Exporta correctamente todos los componentes
+export {
+  RadixToastClose as ToastClose,
   ToastDescription,
   ToastProvider,
   ToastTitle,
   ToastViewport,
-  useToast as useToastPrimitive,
-} from "@radix-ui/react-toast"
-
-import { cn } from "@/lib/utils"
-
-const ToastContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ToastProvider>
-      <ToastViewport />
-      {children}
-    </ToastProvider>
-  )
-}
-
-const ToastComponent = React.forwardRef<React.ElementRef<typeof Toast>, React.ComponentPropsWithoutRef<typeof Toast>>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Toast
-        ref={ref}
-        className={cn(
-          "group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md border p-4 shadow-lg transition-all data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-end data-[swipe=cancel]:animate-cancel data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-value)] data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-value)] data-[state=closed]:slide-out-to-right-1/2 data-[state=open]:slide-in-from-top-1/2 sm:w-[390px]",
-          className,
-        )}
-        {...props}
-      />
-    )
-  },
-)
-ToastComponent.displayName = Toast.displayName
-
-const ToastHeader = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col gap-1">{children}</div>
-}
-
-const ToastTitleComponent = React.forwardRef<
-  React.ElementRef<typeof ToastTitle>,
-  React.ComponentPropsWithoutRef<typeof ToastTitle>
->(({ className, ...props }, ref) => {
-  return <ToastTitle ref={ref} className={cn("text-sm font-semibold [&+div]:text-xs", className)} {...props} />
-})
-ToastTitleComponent.displayName = ToastTitle.displayName
-
-const ToastDescriptionComponent = React.forwardRef<
-  React.ElementRef<typeof ToastDescription>,
-  React.ComponentPropsWithoutRef<typeof ToastDescription>
->(({ className, ...props }, ref) => {
-  return <ToastDescription ref={ref} className={cn("text-sm opacity-80", className)} {...props} />
-})
-ToastDescriptionComponent.displayName = ToastDescription.displayName
-
-const ToastCloseComponent = React.forwardRef<
-  React.ElementRef<typeof ToastClose>,
-  React.ComponentPropsWithoutRef<typeof ToastClose>
->(({ className, ...props }, ref) => {
-  return (
-    <ToastClose
-      ref={ref}
-      className={cn(
-        "absolute right-2 top-2 rounded-md text-gray-500 opacity-0 transition-opacity hover:bg-gray-100 focus:ring-2 focus:ring-gray-500 group-hover:opacity-100",
-        className,
-      )}
-      {...props}
-    />
-  )
-})
-ToastCloseComponent.displayName = ToastClose.displayName
-
-export {
-  useToastPrimitive as useToast,
-  ToastContainer,
-  ToastComponent as Toast,
-  ToastHeader,
-  ToastTitleComponent as ToastTitle,
-  ToastDescriptionComponent as ToastDescription,
-  ToastCloseComponent as ToastClose,
-}
-
+};
