@@ -63,7 +63,7 @@ export default function Hero() {
             >
               <Button variant="ghost" size="icon" asChild>
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/2A2G"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
