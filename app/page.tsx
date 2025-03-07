@@ -13,15 +13,15 @@ export const metadata: Metadata = {
   title: "Portfolio | Desarrollador de Software",
   description:
     "Portfolio profesional de desarrollador de software con experiencia en desarrollo web y móvil",
+  icons: {
+    icon: "/icon-2A2G.png", // Ruta del favicon
+  },
 };
 
 export default function Home() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <div className="min-h-screen bg-background flex flex-col">
-        <Head>
-          <link rel="icon" href="/icon-2A2G.png" />
-        </Head>
         <Header />
         <main className="flex-1">
           <Hero />
