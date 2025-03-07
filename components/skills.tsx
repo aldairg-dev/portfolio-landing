@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const skillCategories = [
   {
@@ -23,43 +23,40 @@ const skillCategories = [
     id: "backend",
     name: "Backend",
     skills: [
-      { name: "Node.js", level: 85 },
-      { name: "Express", level: 85 },
-      { name: "Python", level: 75 },
-      { name: "Django", level: 70 },
-      { name: "PHP", level: 65 },
-      { name: "Laravel", level: 60 },
-      { name: "GraphQL", level: 75 },
-      { name: "REST API", level: 90 },
+      { name: "Node.js", level: 70 },
+      { name: "Express.js", level: 70 },
+      { name: "PHP", level: 80 },
+      { name: "Laravel", level: 88 },
+      { name: "Java", level: 80 },
+      { name: "Spring Boot", level: 88 },
+      // { name: "REST API", level: 90 },
     ],
   },
   {
     id: "database",
     name: "Bases de Datos",
     skills: [
-      { name: "MongoDB", level: 85 },
+      { name: "MongoDB", level: 75 },
       { name: "MySQL", level: 80 },
-      { name: "PostgreSQL", level: 75 },
-      { name: "Firebase", level: 80 },
-      { name: "Redis", level: 65 },
-      { name: "Supabase", level: 70 },
+      { name: "PostgreSQL", level: 88 },
+      // { name: "Firebase", level: 80 },
+      // { name: "Redis", level: 65 },
+      // { name: "Supabase", level: 70 },
     ],
   },
   {
     id: "tools",
     name: "Herramientas",
     skills: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 75 },
-      { name: "AWS", level: 70 },
-      { name: "CI/CD", level: 75 },
-      { name: "Jest", level: 80 },
-      { name: "Cypress", level: 75 },
-      { name: "Figma", level: 70 },
-      { name: "Adobe XD", level: 65 },
+      { name: "Git", level: 98 },
+      { name: "Docker", level: 80 },
+      { name: "Postman", level: 98 },
+      { name: "Google Cloud", level: 75 },
+      { name: "Linux", level: 80 },
+      { name: "Swagger", level: 90 },
     ],
   },
-]
+];
 
 export default function Skills() {
   return (
@@ -72,10 +69,12 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Mis Habilidades</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Mis Habilidades
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Un conjunto de tecnologías y herramientas que domino para crear soluciones digitales eficientes y
-            escalables.
+            Un conjunto de tecnologías y herramientas que domino para crear
+            soluciones digitales eficientes y escalables.
           </p>
         </motion.div>
 
@@ -89,7 +88,11 @@ export default function Skills() {
           </TabsList>
 
           {skillCategories.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="space-y-8">
+            <TabsContent
+              key={category.id}
+              value={category.id}
+              className="space-y-8"
+            >
               <Card>
                 <CardContent className="pt-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -104,7 +107,9 @@ export default function Skills() {
                         <div className="space-y-2">
                           <div className="flex justify-between">
                             <span className="font-medium">{skill.name}</span>
-                            <span className="text-muted-foreground">{skill.level}%</span>
+                            <span className="text-muted-foreground">
+                              {skill.level}%
+                            </span>
                           </div>
                           <div className="h-2 bg-muted rounded-full overflow-hidden">
                             <motion.div
@@ -126,6 +131,5 @@ export default function Skills() {
         </Tabs>
       </div>
     </section>
-  )
+  );
 }
-
