@@ -1,42 +1,49 @@
-"use server"
+"use server";
 
-import { Resend } from "resend"
+import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "re_123456789")
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type EmailData = {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 export async function sendEmail(data: EmailData) {
-  const { name, email, subject, message } = data
-  const emailSubject = subject ? subject : `Nuevo mensaje de ${name}`
+  const { name, email, subject, message } = data;
+  const emailSubject = subject ? subject : `📩 Nuevo mensaje de ${name}`;
 
   try {
     const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["tu-email@ejemplo.com"],
+      to: [""],
       subject: emailSubject,
-      reply_to: email,
-      text: `
-        Nombre: ${name}
-        Email: ${email}
-        Mensaje: ${message}
+      replyTo: email,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; border-radius: 8px; background: #f9f9f9;">
+          <h2 style="color: #007bff;">📬 Nuevo mensaje de contacto</h2>
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #007bff;">${email}</a></p>
+          <p><strong>Mensaje:</strong></p>
+          <blockquote style="border-left: 4px solid #007bff; padding-left: 10px; color: #555;">
+            ${message}
+          </blockquote>
+          <hr>
+          <p style="font-size: 14px; color: #777;">📩 Este mensaje fue enviado desde tu portafolio.</p>
+        </div>
       `,
-    })
+    });
 
     if (error) {
-      console.error("Error sending email:", error)
-      throw new Error("Failed to send email")
+      console.error("Error sending email:", error);
+      throw new Error("Failed to send email");
     }
 
-    return { success: true, data }
+    return { success: true, data };
   } catch (error) {
-    console.error("Error in sendEmail:", error)
-    throw new Error("Failed to send email")
+    console.error("Error in sendEmail:", error);
+    throw new Error("Failed to send email");
   }
 }
-
