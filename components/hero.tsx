@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
@@ -8,6 +8,18 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 export default function Hero() {
+  const [text, setText] = useState("Aldair Gutierrez");
+  const texts = ["Aldair Gutierrez", "Software Developer"];
+  let index = 0;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      index = (index + 1) % texts.length;
+      setText(texts[index]);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const { theme } = useTheme();
   const [src, setSrc] = useState(
     "https://avatars.githubusercontent.com/u/112210730?s=400&u=803c89d66d1b14e6f0c113036e21c493261e93ca&v=4"
@@ -24,27 +36,52 @@ export default function Hero() {
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-                <span className="block">Hola, soy</span>
-                <span className="block">Aldair Gutierrez</span>
-                <span className="text-primary block">
-                  Desarrollador de Software
-                </span>
-              </h1>
-            </motion.div>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
+              >
+                Hola, soy
+              </motion.span>
+              <motion.span
+                className="text-primary block"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                <motion.span
+                  className="typing-effect"
+                  key={text}
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  exit={{ width: 0 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  style={{
+                    display: "inline-block",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    borderRight: "2px solid",
+                  }}
+                >
+                  {text}
+                </motion.span>
+              </motion.span>
+            </motion.h1>
 
             <motion.p
               className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
             >
               Detrás de cada aplicación que funciona sin problemas, hay un
               desarrollador backend que convirtió la lógica en magia.
@@ -54,7 +91,7 @@ export default function Hero() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ delay: 0.7, duration: 0.8, ease: "easeInOut" }}
             >
               <Button asChild size="lg">
                 <Link href="#projects">Ver Proyectos</Link>
@@ -68,7 +105,7 @@ export default function Hero() {
               className="flex gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
+              transition={{ delay: 0.9, duration: 0.8, ease: "easeInOut" }}
             >
               <Button variant="ghost" size="icon" asChild>
                 <Link
@@ -97,71 +134,37 @@ export default function Hero() {
             className="flex-1 relative flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+            transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
           >
-            <div className="relative w-full max-w-md mx-auto aspect-square">
-              {/* ✨ Aura animada con colores según el modo */}
-              <motion.div
-                className="absolute inset-0 rounded-full blur-3xl"
-                style={{
-                  background:
-                    theme === "dark"
-                      ? "linear-gradient(to right, rgba(128, 0, 128, 0.4), rgba(75, 0, 130, 0.6))"
-                      : "linear-gradient(to right, rgba(173, 216, 250, 0.4), rgba(230, 200, 250, 0.5))",
-                }}
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 10, -10, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  duration: 3,
-                  ease: "easeInOut",
-                }}
+            <motion.div
+              className="absolute inset-0 z-0 rounded-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              style={{
+                boxShadow:
+                  theme === "dark"
+                    ? "0 0 60px rgba(59,130,246,0.8)"
+                    : "0 0 40px rgba(255,215,0,0.6)",
+                filter: "blur(20px)",
+              }}
+            />
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 3 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Image
+                src={src}
+                alt="Developer Portrait"
+                width={500}
+                height={500}
+                className="relative z-10 rounded-full object-cover border-4 shadow-xl border-gray-800 dark:border-gray-300"
+                priority
+                onError={() => setSrc("/placeholder.svg?height=500&width=500")}
               />
-
-              {/* 📸 Imagen con borde dinámico */}
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Image
-                  src={src}
-                  alt="Developer Portrait"
-                  width={500}
-                  height={500}
-                  className={`relative z-10 rounded-full object-cover border-4 shadow-xl ${
-                    theme === "dark" ? "border-gray-300" : "border-gray-800"
-                  }`}
-                  priority
-                  onError={() =>
-                    setSrc("/placeholder.svg?height=500&width=500")
-                  }
-                />
-              </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 1,
-            duration: 0.5,
-            repeat: Number.POSITIVE_INFINITY,
-            repeatType: "reverse",
-          }}
-        >
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="#projects">
-              <ArrowDown className="h-6 w-6" />
-              <span className="sr-only">Scroll Down</span>
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
