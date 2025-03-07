@@ -1,12 +1,18 @@
 "use client";
-
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export default function Hero() {
+  const { theme } = useTheme();
+  const [src, setSrc] = useState(
+    "https://avatars.githubusercontent.com/u/112210730?s=400&u=803c89d66d1b14e6f0c113036e21c493261e93ca&v=4"
+  );
+
   return (
     <section
       id="home"
@@ -88,21 +94,52 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="flex-1 relative"
+            className="flex-1 relative flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
           >
             <div className="relative w-full max-w-md mx-auto aspect-square">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/40 blur-3xl animate-pulse" />
-              <Image
-                src="/placeholder.svg?height=500&width=500"
-                alt="Developer Portrait"
-                width={500}
-                height={500}
-                className="relative z-10 rounded-full object-cover border-4 border-background shadow-xl"
-                priority
+              {/* ✨ Aura animada con colores según el modo */}
+              <motion.div
+                className="absolute inset-0 rounded-full blur-3xl"
+                style={{
+                  background:
+                    theme === "dark"
+                      ? "linear-gradient(to right, rgba(128, 0, 128, 0.4), rgba(75, 0, 130, 0.6))"
+                      : "linear-gradient(to right, rgba(173, 216, 250, 0.4), rgba(230, 200, 250, 0.5))",
+                }}
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 10, -10, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  duration: 3,
+                  ease: "easeInOut",
+                }}
               />
+
+              {/* 📸 Imagen con borde dinámico */}
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Image
+                  src={src}
+                  alt="Developer Portrait"
+                  width={500}
+                  height={500}
+                  className={`relative z-10 rounded-full object-cover border-4 shadow-xl ${
+                    theme === "dark" ? "border-gray-300" : "border-gray-800"
+                  }`}
+                  priority
+                  onError={() =>
+                    setSrc("/placeholder.svg?height=500&width=500")
+                  }
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>
