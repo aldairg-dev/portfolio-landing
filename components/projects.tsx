@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -13,34 +12,54 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    title: "StudentChoice",
-    description:
-      "Sistema de votación estudiantil desarrollado en Laravel, utilizando Jetstream, Livewire y Tailwind CSS, junto a PostgreSQL. Garantiza un proceso de votación seguro, eficiente y fácil de usar.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Laravel", "Jetstream", "Livewire", "Tailwind CSS", "PostgreSQL"],
-    demoUrl: "#",
-    repoUrl: "https://github.com/2A2G/StudentChoice",
-  },
-  {
-    id: 2,
     title: "E-Factura",
     description:
       "Sistema de facturación electrónica integrado con las API’s de Factus Halltec. Automatiza y optimiza la facturación cumpliendo con normativas legales vigentes.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: [
+      "img/project/efactura/compras.png",
+      "img/project/efactura/home.png",
+      "img/project/efactura/facturas.png",
+    ],
     tags: ["Laravel", "Jetstream", "Livewire", "Tailwind CSS", "PostgreSQL"],
     demoUrl: "#",
     repoUrl: "https://github.com/2A2G/E-Factura",
+  },
+  {
+    id: 2,
+    title: "StudentChoice",
+    description:
+      "Sistema de votación estudiantil desarrollado en Laravel, utilizando Jetstream, Livewire y Tailwind CSS, junto a PostgreSQL. Garantiza un proceso de votación seguro, eficiente y fácil de usar.",
+    image: [
+      "img/project/studentChoise/home.png",
+      "img/project/studentChoise/dashboard.png",
+      "img/project/studentChoise/historial.png",
+    ],
+    tags: ["Laravel", "Jetstream", "Livewire", "Tailwind CSS", "PostgreSQL"],
+    demoUrl: "#",
+    repoUrl: "https://github.com/2A2G/StudentChoice",
   },
 ];
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % projects[0].image.length
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="projects" className="py-20 bg-muted/50">
@@ -60,27 +79,34 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5 }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
               <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-lg">
-                <div className="relative overflow-hidden aspect-video">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className={`object-cover transition-transform duration-500 ${
-                      hoveredProject === project.id ? "scale-110" : "scale-100"
-                    }`}
-                  />
+                <div className="relative overflow-hidden w-full aspect-video">
+                  {project.image.map((img, index) => (
+                    <Image
+                      key={`${project.id}-img-${index}`}
+                      src={img}
+                      alt={project.title || "Project Image"}
+                      width={600}
+                      height={400}
+                      className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
+                        index === currentImageIndex
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    />
+                  ))}
                 </div>
+
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
@@ -105,7 +131,7 @@ export default function Projects() {
                       Código
                     </Link>
                   </Button>
-                  <Button asChild size="sm">
+                  {/* <Button asChild size="sm">
                     <Link
                       href={project.demoUrl}
                       target="_blank"
@@ -114,7 +140,7 @@ export default function Projects() {
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Demo
                     </Link>
-                  </Button>
+                  </Button> */}
                 </CardFooter>
               </Card>
             </motion.div>
