@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio profesional de desarrollador de software con experiencia en desarrollo web y móvil",
   icons: {
-    icon: "/icon-2A2G.png", // Ruta del favicon
+    icon: "img/icon-2A2G.png",
   },
 };
 
