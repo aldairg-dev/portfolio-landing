@@ -7,7 +7,7 @@ import {
   ToastProvider,
   ToastTitle,
 } from "@radix-ui/react-toast";
-import { ToastClose as RadixToastClose } from "@radix-ui/react-toast"; // Asegúrate de que esta importación sea correcta
+import { ToastClose as RadixToastClose } from "@radix-ui/react-toast";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 5000;
