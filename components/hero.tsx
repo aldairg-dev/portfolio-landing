@@ -156,7 +156,7 @@ export default function Hero() {
                 alt="Developer Portrait"
                 width={500}
                 height={500}
-                className="relative z-10 rounded-full object-cover shadow-xl" // Eliminado el borde
+                className="relative z-10 rounded-full object-cover shadow-xl"
                 priority
                 onError={() => setSrc("/placeholder.svg?height=500&width=500")}
               />
