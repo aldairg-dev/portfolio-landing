@@ -21,9 +21,7 @@ export default function Hero() {
   }, []);
 
   const { theme } = useTheme();
-  const [src, setSrc] = useState(
-    "https://avatars.githubusercontent.com/u/112210730?s=400&u=803c89d66d1b14e6f0c113036e21c493261e93ca&v=4"
-  );
+  const [src, setSrc] = useState("/image-dashboard.png");
 
   return (
     <section
@@ -158,7 +156,7 @@ export default function Hero() {
                 alt="Developer Portrait"
                 width={500}
                 height={500}
-                className="relative z-10 rounded-full object-cover border-4 shadow-xl border-gray-800 dark:border-gray-300"
+                className="relative z-10 rounded-full object-cover shadow-xl"
                 priority
                 onError={() => setSrc("/placeholder.svg?height=500&width=500")}
               />
