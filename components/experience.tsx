@@ -123,22 +123,32 @@ export default function Experience() {
         </motion.div>
 
         <Tabs defaultValue="work" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-3 gap-4 mb-8">
-            <TabsTrigger value="work" className="flex items-center gap-2">
-              <Briefcase className="h-4 w-4" /> Experiencia Laboral
+          <TabsList className="flex flex-col sm:grid sm:grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8">
+            <TabsTrigger
+              value="work"
+              className="flex items-center justify-center gap-2"
+            >
+              <Briefcase className="h-4 w-4" />{" "}
+              <span className="whitespace-nowrap">Experiencia Laboral</span>
             </TabsTrigger>
-            <TabsTrigger value="education" className="flex items-center gap-2">
-              <GraduationCap className="h-4 w-4" /> Formación Académica
+            <TabsTrigger
+              value="education"
+              className="flex items-center justify-center gap-2"
+            >
+              <GraduationCap className="h-4 w-4" />{" "}
+              <span className="whitespace-nowrap">Formación Académica</span>
             </TabsTrigger>
             <TabsTrigger
               value="certifications"
-              className="flex items-center gap-2"
+              className="flex items-center justify-center gap-2"
             >
-              <GraduationCap className="h-4 w-4" /> Certificados
+              <GraduationCap className="h-4 w-4" />{" "}
+              <span className="whitespace-nowrap">Certificados</span>
             </TabsTrigger>
           </TabsList>
+          <br />
 
-          <TabsContent value="work" className="space-y-6">
+          <TabsContent value="work" className="space-y-4 sm:space-y-6">
             {workExperience.map((job, index) => (
               <motion.div
                 key={job.id}
@@ -149,25 +159,27 @@ export default function Experience() {
               >
                 <Card>
                   <CardHeader>
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                       <div>
-                        <CardTitle>{job.role}</CardTitle>
+                        <CardTitle className="text-lg sm:text-xl">
+                          {job.role}
+                        </CardTitle>
                         <CardDescription>{job.company}</CardDescription>
                       </div>
-                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
+                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded self-start mt-1 sm:mt-0">
                         {job.period}
                       </span>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p>{job.description}</p>
+                    <p className="text-sm sm:text-base">{job.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </TabsContent>
 
-          <TabsContent value="education" className="space-y-6">
+          <TabsContent value="education" className="space-y-4 sm:space-y-6">
             {education.map((edu, index) => (
               <motion.div
                 key={edu.id}
@@ -178,25 +190,32 @@ export default function Experience() {
               >
                 <Card>
                   <CardHeader>
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                       <div>
-                        <CardTitle>{edu.degree}</CardTitle>
-                        <CardDescription>{edu.institution}</CardDescription>
+                        <CardTitle className="text-lg sm:text-xl">
+                          {edu.degree}
+                        </CardTitle>
+                        <CardDescription className="text-sm">
+                          {edu.institution}
+                        </CardDescription>
                       </div>
-                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
+                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded self-start mt-1 sm:mt-0">
                         {edu.period}
                       </span>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p>{edu.description}</p>
+                    <p className="text-sm sm:text-base">{edu.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </TabsContent>
 
-          <TabsContent value="certifications" className="space-y-6">
+          <TabsContent
+            value="certifications"
+            className="space-y-4 sm:space-y-6"
+          >
             {certifications.map((certi, index) => (
               <motion.div
                 key={certi.id}
@@ -207,20 +226,26 @@ export default function Experience() {
               >
                 <Card>
                   <CardHeader>
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
                       <div>
-                        <CardTitle>{certi.title}</CardTitle>
-                        <CardDescription>{certi.institution}</CardDescription>
+                        <CardTitle className="text-lg sm:text-xl">
+                          {certi.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm">
+                          {certi.institution}
+                        </CardDescription>
                       </div>
-                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
+                      <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded self-start mt-1 sm:mt-0">
                         {certi.issued}
                       </span>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-3">{certi.description}</p>
+                    <p className="text-sm sm:text-base mb-2 sm:mb-3">
+                      {certi.description}
+                    </p>
                     {certi.link && (
-                      <div className="text-sm">
+                      <div className="text-xs sm:text-sm">
                         <span className="font-medium">Credencial: </span>
                         <a
                           href={certi.link}
