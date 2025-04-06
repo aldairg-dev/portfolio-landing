@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const toEmail = process.env.TO_EMAIL;
 
 type EmailData = {
   name: string;
@@ -15,10 +16,15 @@ export async function sendEmail(data: EmailData) {
   const { name, email, subject, message } = data;
   const emailSubject = subject ? subject : `📩 Nuevo mensaje de ${name}`;
 
+  if (!toEmail) {
+    console.error("toEmail no está definido.");
+    throw new Error("No se puede enviar el correo: toEmail no está definido");
+  }
+
   try {
-    const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: [""],
+    const { data: emailData, error } = await resend.emails.send({
+      from: "Portfolio Contact <devPortafolio@resend.dev>",
+      to: toEmail,
       subject: emailSubject,
       replyTo: email,
       html: `
@@ -41,9 +47,9 @@ export async function sendEmail(data: EmailData) {
       throw new Error("Failed to send email");
     }
 
-    return { success: true, data };
-  } catch (error) {
-    console.error("Error in sendEmail:", error);
+    return { success: true, data: emailData };
+  } catch (error: any) {
+    console.error("Error in sendEmail:", error.message || error);
     throw new Error("Failed to send email");
   }
 }
