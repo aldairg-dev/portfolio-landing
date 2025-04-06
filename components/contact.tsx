@@ -108,17 +108,6 @@ export default function Contact() {
                       </p>
                     </div>
                   </div>
-                  {/* <div className="flex items-center gap-4">
-                    <div className="bg-primary/10 p-3 rounded-full">
-                      <Phone className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">Teléfono</h3>
-                      <p className="text-sm text-muted-foreground">
-                        +1 234 567 890
-                      </p>
-                    </div>
-                  </div> */}
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <MapPin className="h-6 w-6 text-primary" />
