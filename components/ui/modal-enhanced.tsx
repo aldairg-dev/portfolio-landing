@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false);
 
-  // Manejar el cierre con animación
+  // Handle close with animation
   const handleClose = () => {
     setIsClosing(true);
     setTimeout(() => {
@@ -217,7 +217,7 @@ const Modal: React.FC<ModalProps> = ({
                   key={`confetti-${i}`}
                   initial={{ 
                     y: -100, 
-                    x: Math.random() * window.innerWidth,
+                    x: Math.random() * 400, // Use a fixed width for SSR compatibility
                     rotate: 0,
                     opacity: 0
                   }}
@@ -285,7 +285,7 @@ const Modal: React.FC<ModalProps> = ({
                 size="icon"
                 onClick={handleClose}
                 className="absolute top-4 right-4 h-8 w-8 rounded-full hover:bg-background/20 transition-all duration-200"
-                aria-label="Cerrar"
+                aria-label="Close"
               >
                 <X className="w-4 h-4" />
               </Button>
