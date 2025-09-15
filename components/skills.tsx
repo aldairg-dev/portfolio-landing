@@ -6,29 +6,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const skillCategories = [
   {
-    id: "frontend",
-    name: "Frontend",
-    skills: [
-      { name: "HTML5", level: 90 },
-      { name: "CSS3/SASS", level: 85 },
-      { name: "JavaScript", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "Vue.js", level: 75 },
-      { name: "Tailwind CSS", level: 90 },
-    ],
-  },
-  {
     id: "backend",
     name: "Backend",
     skills: [
       { name: "Node.js", level: 70 },
-      { name: "Express.js", level: 70 },
+      { name: "Express.js", level: 75 },
       { name: "PHP", level: 80 },
-      { name: "Laravel", level: 88 },
+      { name: "Laravel", level: 90 },
       { name: "Java", level: 80 },
-      { name: "Spring Boot", level: 88 },
+      { name: "Spring Boot", level: 90 },
       // { name: "REST API", level: 90 },
     ],
   },
@@ -36,9 +22,9 @@ const skillCategories = [
     id: "database",
     name: "Bases de Datos",
     skills: [
-      { name: "MongoDB", level: 75 },
+      { name: "MongoDB", level: 65 },
       { name: "MySQL", level: 80 },
-      { name: "PostgreSQL", level: 88 },
+      { name: "PostgreSQL", level: 80 },
       // { name: "Firebase", level: 80 },
       // { name: "Redis", level: 65 },
       // { name: "Supabase", level: 70 },
@@ -48,12 +34,10 @@ const skillCategories = [
     id: "tools",
     name: "Herramientas",
     skills: [
-      { name: "Git", level: 98 },
+      { name: "Git", level: 90 },
       { name: "Docker", level: 80 },
-      { name: "Postman", level: 98 },
-      { name: "Google Cloud", level: 75 },
-      { name: "Linux", level: 80 },
-      { name: "Swagger", level: 90 },
+      { name: "Postman", level: 90 },
+      { name: "Swagger", level: 80 },
     ],
   },
 ];
@@ -79,7 +63,7 @@ export default function Skills() {
         </motion.div>
 
         <Tabs defaultValue="frontend" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8">
+          <TabsList className="grid grid-cols-2 md:grid-cols-3 mb-8">
             {skillCategories.map((category) => (
               <TabsTrigger key={category.id} value={category.id}>
                 {category.name}
