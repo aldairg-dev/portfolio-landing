@@ -81,10 +81,9 @@ const contactMethods = [
   {
     icon: MessageSquare,
     title: "WhatsApp",
-    value: "+57 300 123 4567",
+    value: `+57 ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "305 360 6634"}`,
     description: "Respuesta inmediata",
-    // TODO: Replace with your actual WhatsApp number before production
-    action: "https://wa.me/57XXXXXXXXXX",
+    action: `https://wa.me/57${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "3053606634"}`,
   },
   {
     icon: Linkedin,
@@ -448,7 +447,7 @@ ${formData.message}
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+57 300 123 4567"
+                        placeholder={`+57 ${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "305 360 6634"}`}
                       />
                     </div>
                   </div>
@@ -459,6 +458,7 @@ ${formData.message}
                       Tipo de servicio *
                     </label>
                     <Select
+                      value={formData.serviceType}
                       onValueChange={(value) =>
                         handleSelectChange("serviceType", value)
                       }
@@ -482,6 +482,7 @@ ${formData.message}
                         Presupuesto estimado
                       </label>
                       <Select
+                        value={formData.budget}
                         onValueChange={(value) =>
                           handleSelectChange("budget", value)
                         }
@@ -503,6 +504,7 @@ ${formData.message}
                         Timeline del proyecto
                       </label>
                       <Select
+                        value={formData.timeline}
                         onValueChange={(value) =>
                           handleSelectChange("timeline", value)
                         }
