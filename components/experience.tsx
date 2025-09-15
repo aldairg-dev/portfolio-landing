@@ -54,7 +54,14 @@ const education = [
 
 const certifications = [
   {
-    id: 1,
+    title: "Bootcamp Algorithmic Minds AI & DATA",
+    institution: "Future Tales",
+    issued: "Junio 2025",
+    link: "https://www.linkedin.com/in/aldair-gutierrez-guerrero/overlay/1757697230288/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
+    description:
+      "Participación en un bootcamp intensivo enfocado en Inteligencia Artificial y Ciencia de Datos, trabajando en proyectos prácticos de machine learning, análisis de datos y algoritmos para resolver problemas del mundo real.",
+  },
+  {
     title: "Google Cloud Fundamentals: Core Infrastructure",
     institution: "Google",
     issued: "Febrero 2025",
@@ -64,7 +71,6 @@ const certifications = [
       "Introducción a los conceptos y servicios fundamentales de Google Cloud, incluyendo redes, almacenamiento y computación en la nube.",
   },
   {
-    id: 2,
     title: "Plan Estratégico Tecnologías de la Información (PETI)",
     institution:
       "Ministerio de Tecnologías de la Información y las Comunicaciones",
@@ -74,7 +80,6 @@ const certifications = [
       "Desarrollo de estrategias para la planificación y gestión eficiente de tecnologías de la información en organizaciones.",
   },
   {
-    id: 3,
     title: "Reto Factus, Facturación Electrónica",
     institution: "HALLTEC",
     issued: "Febrero 2025",
@@ -83,7 +88,6 @@ const certifications = [
       "Implementación y manejo de facturación electrónica en cumplimiento con la normativa vigente.",
   },
   {
-    id: 4,
     title: "Curso de Fundamentos de Node.js",
     institution: "Platzi",
     issued: "Noviembre 2024",
@@ -92,7 +96,6 @@ const certifications = [
       "Conceptos básicos y desarrollo de aplicaciones con Node.js, incluyendo módulos, eventos y asincronía.",
   },
   {
-    id: 5,
     title: "Curso de Git y GitHub",
     institution: "Platzi",
     issued: "Noviembre 2024",
@@ -218,7 +221,6 @@ export default function Experience() {
           >
             {certifications.map((certi, index) => (
               <motion.div
-                key={certi.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
