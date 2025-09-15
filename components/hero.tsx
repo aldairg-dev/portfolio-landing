@@ -16,15 +16,18 @@ export default function Hero() {
     "Database Expert",
     "System Designer"
   ];
-  let index = 0;
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      index = (index + 1) % texts.length;
-      setText(texts[index]);
+      setIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [texts.length]);
+
+  useEffect(() => {
+    setText(texts[index]);
+  }, [index, texts]);
 
   const { theme } = useTheme();
   const [src, setSrc] = useState("/image-dashboard.png");

@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { link } from "fs";
 
 const workExperience = [
   {

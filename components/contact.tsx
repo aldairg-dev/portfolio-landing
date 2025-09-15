@@ -83,7 +83,8 @@ const contactMethods = [
     title: "WhatsApp",
     value: "+57 300 123 4567",
     description: "Respuesta inmediata",
-    action: "https://wa.me/573001234567",
+    // TODO: Replace with your actual WhatsApp number before production
+    action: "https://wa.me/57XXXXXXXXXX",
   },
   {
     icon: Linkedin,
