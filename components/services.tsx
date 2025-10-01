@@ -20,7 +20,7 @@ import {
   Globe,
   Settings,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -34,11 +34,11 @@ const services = [
       "Arquitectura RESTful",
       "Documentación Swagger/OpenAPI",
       "Autenticación JWT",
-      "Rate limiting y validación"
+      "Rate limiting y validación",
     ],
     technologies: ["Laravel", "Spring Boot", "Node.js", "Express"],
     price: "Desde $900.000 COP",
-    popular: false
+    popular: false,
   },
   {
     id: 2,
@@ -49,26 +49,27 @@ const services = [
       "Aplicaciones web completas",
       "Sistemas de gestión",
       "Integración de APIs",
-      "Panel administrativo"
+      "Panel administrativo",
     ],
     technologies: ["Laravel", "React", "Vue.js", "MySQL"],
     price: "Desde $1.800.000 COP",
-    popular: true
+    popular: true,
   },
   {
     id: 3,
     title: "Optimización de Bases de Datos",
-    description: "Diseño y optimización de esquemas de BD para máximo rendimiento",
+    description:
+      "Diseño y optimización de esquemas de BD para máximo rendimiento",
     icon: Database,
     features: [
       "Diseño de esquemas",
       "Optimización de consultas",
       "Indexación estratégica",
-      "Migración de datos"
+      "Migración de datos",
     ],
     technologies: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
     price: "Desde $600.000 COP",
-    popular: false
+    popular: false,
   },
   {
     id: 4,
@@ -79,11 +80,11 @@ const services = [
       "Containerización Docker",
       "CI/CD pipelines",
       "Monitoreo y logging",
-      "Auto-scaling"
+      "Auto-scaling",
     ],
-    technologies: ["AWS", "Docker", "Jenkins", "Prometheus"],
+    technologies: ["AWS", "Docker", "Jenkins", "Kubernetes"],
     price: "Desde $1.200.000 COP",
-    popular: false
+    popular: false,
   },
   {
     id: 5,
@@ -94,11 +95,11 @@ const services = [
       "Autenticación OAuth2",
       "Encriptación de datos",
       "Auditoría de seguridad",
-      "OWASP compliance"
+      "OWASP compliance",
     ],
     technologies: ["JWT", "OAuth2", "SSL/TLS", "Bcrypt"],
     price: "Desde $800.000 COP",
-    popular: false
+    popular: false,
   },
   {
     id: 6,
@@ -109,12 +110,12 @@ const services = [
       "Diseño responsive",
       "SEO optimizado",
       "Formularios de contacto",
-      "Análisis de conversión"
+      "Análisis de conversión",
     ],
     technologies: ["Next.js", "React", "Tailwind", "Vercel"],
     price: "Desde $450.000 COP",
-    popular: false
-  }
+    popular: false,
+  },
 ];
 
 export default function Services() {
@@ -123,9 +124,9 @@ export default function Services() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -133,8 +134,8 @@ export default function Services() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -154,8 +155,9 @@ export default function Services() {
             Soluciones Backend <span className="text-primary">Escalables</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Transformo tus ideas en arquitecturas backend robustas que impulsan el crecimiento de tu negocio.
-            Desde APIs hasta microservicios, cada línea de código está optimizada para el éxito.
+            Transformo tus ideas en arquitecturas backend robustas que impulsan
+            el crecimiento de tu negocio. Desde APIs hasta microservicios, cada
+            línea de código está optimizada para el éxito.
           </p>
         </motion.div>
 
@@ -170,9 +172,9 @@ export default function Services() {
             const IconComponent = service.icon;
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <Card 
+                <Card
                   className={`h-full relative group hover:shadow-xl transition-all duration-300 cursor-pointer ${
-                    service.popular ? 'ring-2 ring-primary shadow-lg' : ''
+                    service.popular ? "ring-2 ring-primary shadow-lg" : ""
                   }`}
                 >
                   {service.popular && (
@@ -182,14 +184,16 @@ export default function Services() {
                       </Badge>
                     </div>
                   )}
-                  
+
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className={`p-3 rounded-lg ${
-                        service.popular 
-                          ? 'bg-primary/10 text-primary' 
-                          : 'bg-accent text-accent-foreground'
-                      }`}>
+                      <div
+                        className={`p-3 rounded-lg ${
+                          service.popular
+                            ? "bg-primary/10 text-primary"
+                            : "bg-accent text-accent-foreground"
+                        }`}
+                      >
                         <IconComponent className="h-6 w-6" />
                       </div>
                       <div className="text-right">
@@ -198,7 +202,7 @@ export default function Services() {
                         </Badge>
                       </div>
                     </div>
-                    
+
                     <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
                       {service.title}
                     </CardTitle>
@@ -215,7 +219,10 @@ export default function Services() {
                       </h4>
                       <ul className="space-y-2">
                         {service.features.map((feature, index) => (
-                          <li key={index} className="flex items-center gap-2 text-sm">
+                          <li
+                            key={index}
+                            className="flex items-center gap-2 text-sm"
+                          >
                             <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                             <span>{feature}</span>
                           </li>
@@ -230,7 +237,11 @@ export default function Services() {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {service.technologies.map((tech, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
+                          <Badge
+                            key={index}
+                            variant="secondary"
+                            className="text-xs"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -238,12 +249,12 @@ export default function Services() {
                     </div>
 
                     {/* CTA Button */}
-                    <Button 
-                      asChild 
+                    <Button
+                      asChild
                       className={`w-full group ${
-                        service.popular ? 'bg-primary hover:bg-primary/90' : ''
+                        service.popular ? "bg-primary hover:bg-primary/90" : ""
                       }`}
-                      variant={service.popular ? 'default' : 'outline'}
+                      variant={service.popular ? "default" : "outline"}
                     >
                       <Link href="#contact">
                         Solicitar Cotización
@@ -270,19 +281,16 @@ export default function Services() {
               ¿Necesitas algo más específico?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Cada proyecto es único. Ofrezco soluciones personalizadas adaptadas a tus necesidades específicas.
-              Conversemos sobre tu proyecto y creemos algo extraordinario juntos.
+              Cada proyecto es único. Ofrezco soluciones personalizadas
+              adaptadas a tus necesidades específicas. Conversemos sobre tu
+              proyecto y creemos algo extraordinario juntos.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href="#contact">
-                  Consulta Personalizada
-                </Link>
+                <Link href="#contact">Consulta Personalizada</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="#projects">
-                  Ver Casos de Éxito
-                </Link>
+                <Link href="#projects">Ver Casos de Éxito</Link>
               </Button>
             </div>
           </div>
