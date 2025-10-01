@@ -82,7 +82,7 @@ const services = [
       "Monitoreo y logging",
       "Auto-scaling",
     ],
-    // Tecnología cambiada: Se reemplazó 'Prometheus' por 'Kubernetes' para reflejar el enfoque en orquestación de contenedores en vez de monitoreo.
+    // Kubernetes is included for container orchestration in cloud deployments.
     technologies: ["AWS", "Docker", "Jenkins", "Kubernetes"],
     price: "Desde $1.200.000 COP",
     popular: false,
