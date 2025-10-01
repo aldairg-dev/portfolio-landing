@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Code, Database, TrendingUp, Shield } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Code,
+  Database,
+  TrendingUp,
+  Shield,
+} from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -26,18 +33,18 @@ const projects = [
       "Facturación automática",
       "Gestión de inventarios",
       "Reportes en tiempo real",
-      "Integración con SAT"
+      "Integración con SAT",
     ],
     metrics: {
       performance: "99.9% uptime",
       users: "500+ empresas",
-      transactions: "50K+ facturas/mes"
+      transactions: "50K+ facturas/mes",
     },
     demoUrl: "#",
     repoUrl: "https://github.com/2A2G/E-Factura",
     category: "Enterprise",
     year: "2024",
-    status: "En producción"
+    status: "En producción",
   },
   {
     id: 2,
@@ -56,60 +63,33 @@ const projects = [
       "Votación en tiempo real",
       "Autenticación segura",
       "Auditoría completa",
-      "Resultados instantáneos"
+      "Resultados instantáneos",
     ],
     metrics: {
       performance: "99.8% uptime",
       users: "5K+ estudiantes",
-      transactions: "10K+ votos procesados"
+      transactions: "10K+ votos procesados",
     },
     demoUrl: "#",
     repoUrl: "https://github.com/2A2G/StudentChoice",
     category: "Government",
     year: "2023",
-    status: "En producción"
+    status: "En producción",
   },
-  // Proyecto adicional para mostrar más habilidades
-  {
-    id: 3,
-    title: "API Gateway Microservices",
-    shortDesc: "Arquitectura de microservicios escalable",
-    description:
-      "Desarrollo de un API Gateway empresarial con arquitectura de microservicios, implementando autenticación centralizada, rate limiting, circuit breakers y monitoreo distribuido.",
-    image: [
-      "/placeholder.svg?height=400&width=600&text=API+Gateway+Architecture",
-    ],
-    tags: ["Spring Boot", "Docker", "Kubernetes", "PostgreSQL", "Redis"],
-    backendTech: ["Spring Boot", "Spring Cloud", "Docker", "Kubernetes"],
-    features: [
-      "API Gateway centralizado",
-      "Circuit breaker pattern",
-      "Distributed tracing",
-      "Auto-scaling"
-    ],
-    metrics: {
-      performance: "< 50ms latencia",
-      users: "1M+ requests/día",
-      transactions: "99.99% disponibilidad"
-    },
-    demoUrl: "#",
-    repoUrl: "https://github.com/2A2G/api-gateway",
-    category: "Backend",
-    year: "2024",
-    status: "Open Source"
-  }
 ];
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState<{[key: number]: number}>({});
+  const [currentImageIndex, setCurrentImageIndex] = useState<{
+    [key: number]: number;
+  }>({});
 
   useEffect(() => {
-    projects.forEach(project => {
+    projects.forEach((project) => {
       const interval = setInterval(() => {
-        setCurrentImageIndex(prev => ({
+        setCurrentImageIndex((prev) => ({
           ...prev,
-          [project.id]: ((prev[project.id] || 0) + 1) % project.image.length
+          [project.id]: ((prev[project.id] || 0) + 1) % project.image.length,
         }));
       }, 4000 + project.id * 1000); // Stagger the intervals
 
@@ -122,9 +102,9 @@ export default function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3
-      }
-    }
+        staggerChildren: 0.3,
+      },
+    },
   };
 
   const itemVariants = {
@@ -132,8 +112,8 @@ export default function Projects() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -150,11 +130,13 @@ export default function Projects() {
             Casos de Éxito
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Proyectos que <span className="text-primary">Transforman</span> Negocios
+            Proyectos que <span className="text-primary">Transforman</span>{" "}
+            Negocios
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cada proyecto es una historia de éxito. Desde startups hasta empresas consolidadas,
-            he desarrollado soluciones backend que escalan y generan valor real.
+            Cada proyecto es una historia de éxito. Desde startups hasta
+            empresas consolidadas, he desarrollado soluciones backend que
+            escalan y generan valor real.
           </p>
         </motion.div>
 
@@ -170,14 +152,14 @@ export default function Projects() {
               key={project.id}
               variants={itemVariants}
               className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
               } gap-8 lg:gap-12 items-center`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Project Image */}
               <div className="w-full lg:w-1/2">
-                <motion.div 
+                <motion.div
                   className="relative overflow-hidden rounded-2xl shadow-2xl group"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
@@ -197,7 +179,9 @@ export default function Projects() {
                         }`}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = "/placeholder.svg?height=400&width=600&text=" + encodeURIComponent(project.title);
+                          target.src =
+                            "/placeholder.svg?height=400&width=600&text=" +
+                            encodeURIComponent(project.title);
                         }}
                       />
                     ))}
@@ -206,9 +190,7 @@ export default function Projects() {
                       <Badge className="bg-green-500/90 hover:bg-green-500">
                         {project.status}
                       </Badge>
-                      <Badge variant="secondary">
-                        {project.year}
-                      </Badge>
+                      <Badge variant="secondary">{project.year}</Badge>
                     </div>
                   </div>
                 </motion.div>
@@ -218,7 +200,10 @@ export default function Projects() {
               <div className="w-full lg:w-1/2 space-y-6">
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <Badge variant="outline" className="text-primary border-primary">
+                    <Badge
+                      variant="outline"
+                      className="text-primary border-primary"
+                    >
                       {project.category}
                     </Badge>
                     <Code className="h-5 w-5 text-primary" />
@@ -242,7 +227,11 @@ export default function Projects() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {project.backendTech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary">
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="bg-primary/10 text-primary"
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -257,7 +246,10 @@ export default function Projects() {
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {project.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2 text-sm"
+                      >
                         <div className="w-2 h-2 bg-primary rounded-full" />
                         <span>{feature}</span>
                       </div>
@@ -273,15 +265,25 @@ export default function Projects() {
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                     <div>
-                      <div className="font-medium text-primary">{project.metrics.performance}</div>
-                      <div className="text-muted-foreground">Disponibilidad</div>
+                      <div className="font-medium text-primary">
+                        {project.metrics.performance}
+                      </div>
+                      <div className="text-muted-foreground">
+                        Disponibilidad
+                      </div>
                     </div>
                     <div>
-                      <div className="font-medium text-primary">{project.metrics.users}</div>
-                      <div className="text-muted-foreground">Usuarios activos</div>
+                      <div className="font-medium text-primary">
+                        {project.metrics.users}
+                      </div>
+                      <div className="text-muted-foreground">
+                        Usuarios activos
+                      </div>
                     </div>
                     <div>
-                      <div className="font-medium text-primary">{project.metrics.transactions}</div>
+                      <div className="font-medium text-primary">
+                        {project.metrics.transactions}
+                      </div>
                       <div className="text-muted-foreground">Transacciones</div>
                     </div>
                   </div>
@@ -324,13 +326,12 @@ export default function Projects() {
               ¿Listo para tu próximo proyecto?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Estos son solo algunos ejemplos. Cada proyecto es único y está diseñado
-              para resolver desafíos específicos. Conversemos sobre tu próxima idea.
+              Estos son solo algunos ejemplos. Cada proyecto es único y está
+              diseñado para resolver desafíos específicos. Conversemos sobre tu
+              próxima idea.
             </p>
             <Button asChild size="lg">
-              <Link href="#contact">
-                Empezar mi Proyecto
-              </Link>
+              <Link href="#contact">Empezar mi Proyecto</Link>
             </Button>
           </div>
         </motion.div>
