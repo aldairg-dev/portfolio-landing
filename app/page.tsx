@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "Desarrollador Backend especializado en APIs escalables, microservicios y arquitecturas distribuidas. Laravel, Spring Boot, Node.js. Servicios profesionales de desarrollo.",
   icons: {
-    icon: "img/icon-2A2G.png",
+    icon: "img/icon-logotipo.png",
   },
   keywords: [
     "backend developer",

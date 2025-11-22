@@ -104,6 +104,21 @@ const services = [
   },
   {
     id: 6,
+    title: "Automatización de Procesos",
+    description: "Workflows inteligentes que conectan tus herramientas favoritas",
+    icon: Zap,
+    features: [
+      "Workflows con n8n",
+      "Integración Telegram/Email",
+      "Conectores SharePoint/Excel",
+      "Automatización Google Drive",
+    ],
+    technologies: ["n8n", "Telegram API", "SharePoint", "Google Drive"],
+    price: "Desde $500.000 COP",
+    popular: false,
+  },
+  {
+    id: 7,
     title: "Landing Pages",
     description: "Páginas de aterrizaje optimizadas para conversión",
     icon: Globe,

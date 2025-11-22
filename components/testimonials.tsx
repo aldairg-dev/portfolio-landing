@@ -72,7 +72,7 @@ const testimonials = [
 const stats = [
   { label: "Clientes Satisfechos", value: "25+", icon: "👥" },
   { label: "Proyectos Completados", value: "50+", icon: "🚀" },
-  { label: "Años de Experiencia", value: "4+", icon: "⭐" },
+  { label: "Años de Experiencia", value: "3+", icon: "⭐" },
   { label: "Tasa de Éxito", value: "100%", icon: "✅" }
 ];
 

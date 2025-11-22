@@ -3,17 +3,17 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Server, 
-  Database, 
-  Cloud, 
-  Settings, 
-  Code, 
+import {
+  Server,
+  Database,
+  Cloud,
+  Settings,
+  Code,
   Shield,
   Zap,
   GitBranch,
   Terminal,
-  Cpu
+  Cpu,
 } from "lucide-react";
 
 const skillCategories = [
@@ -24,42 +24,42 @@ const skillCategories = [
     description: "Frameworks y lenguajes para desarrollo backend robusto",
     color: "from-blue-500 to-cyan-500",
     skills: [
-      { 
-        name: "Laravel", 
-        level: 95, 
+      {
+        name: "Laravel",
+        level: 95,
         experience: "3+ años",
         projects: "15+ proyectos",
-        description: "Framework principal para desarrollo PHP empresarial"
+        description: "Framework principal para desarrollo PHP empresarial",
       },
-      { 
-        name: "Spring Boot", 
-        level: 90, 
+      {
+        name: "Spring Boot",
+        level: 90,
         experience: "2+ años",
         projects: "8+ proyectos",
-        description: "Desarrollo de microservicios y APIs escalables"
+        description: "Desarrollo de microservicios y APIs escalables",
       },
-      { 
-        name: "PHP", 
-        level: 92, 
+      {
+        name: "PHP",
+        level: 92,
         experience: "4+ años",
         projects: "20+ proyectos",
-        description: "Desarrollo backend y integración de sistemas"
+        description: "Desarrollo backend y integración de sistemas",
       },
-      { 
-        name: "Node.js", 
-        level: 75, 
+      {
+        name: "Node.js",
+        level: 75,
         experience: "1+ año",
         projects: "5+ proyectos",
-        description: "APIs REST y aplicaciones en tiempo real"
+        description: "APIs REST y aplicaciones en tiempo real",
       },
-      { 
-        name: "Java", 
-        level: 85, 
+      {
+        name: "Java",
+        level: 85,
         experience: "2+ años",
         projects: "6+ proyectos",
-        description: "Aplicaciones empresariales y microservicios"
-      }
-    ]
+        description: "Aplicaciones empresariales y microservicios",
+      },
+    ],
   },
   {
     id: "database",
@@ -68,35 +68,35 @@ const skillCategories = [
     description: "Diseño, optimización y administración de bases de datos",
     color: "from-green-500 to-emerald-500",
     skills: [
-      { 
-        name: "PostgreSQL", 
-        level: 88, 
+      {
+        name: "PostgreSQL",
+        level: 88,
         experience: "3+ años",
         projects: "12+ proyectos",
-        description: "Base de datos principal para aplicaciones complejas"
+        description: "Base de datos principal para aplicaciones complejas",
       },
-      { 
-        name: "MySQL", 
-        level: 85, 
+      {
+        name: "MySQL",
+        level: 85,
         experience: "3+ años",
         projects: "15+ proyectos",
-        description: "Optimización y diseño de esquemas relacionales"
+        description: "Optimización y diseño de esquemas relacionales",
       },
-      { 
-        name: "Redis", 
-        level: 75, 
+      {
+        name: "Redis",
+        level: 75,
         experience: "1+ año",
         projects: "6+ proyectos",
-        description: "Caché distribuido y almacenamiento en memoria"
+        description: "Caché distribuido y almacenamiento en memoria",
       },
-      { 
-        name: "MongoDB", 
-        level: 70, 
+      {
+        name: "MongoDB",
+        level: 70,
         experience: "1+ año",
         projects: "4+ proyectos",
-        description: "Base de datos NoSQL para aplicaciones flexibles"
-      }
-    ]
+        description: "Base de datos NoSQL para aplicaciones flexibles",
+      },
+    ],
   },
   {
     id: "devops",
@@ -105,35 +105,72 @@ const skillCategories = [
     description: "Despliegue, contenedores y servicios en la nube",
     color: "from-purple-500 to-pink-500",
     skills: [
-      { 
-        name: "Docker", 
-        level: 82, 
+      {
+        name: "Docker",
+        level: 82,
         experience: "2+ años",
         projects: "10+ proyectos",
-        description: "Contenedorización y despliegue de aplicaciones"
+        description: "Contenedorización y despliegue de aplicaciones",
       },
-      { 
-        name: "AWS", 
-        level: 75, 
+      {
+        name: "AWS",
+        level: 75,
         experience: "1+ año",
         projects: "5+ proyectos",
-        description: "Servicios cloud y infraestructura escalable"
+        description: "Servicios cloud y infraestructura escalable",
       },
-      { 
-        name: "Google Cloud", 
-        level: 70, 
+      {
+        name: "Google Cloud",
+        level: 70,
         experience: "6+ meses",
         projects: "3+ proyectos",
-        description: "Despliegue y gestión de aplicaciones en GCP"
+        description: "Despliegue y gestión de aplicaciones en GCP",
       },
-      { 
-        name: "Nginx", 
-        level: 78, 
+    ],
+  },
+  {
+    id: "automation",
+    name: "Automatización & Workflows",
+    icon: Zap,
+    description: "Automatización de procesos y creación de workflows",
+    color: "from-yellow-500 to-orange-500",
+    skills: [
+      {
+        name: "n8n",
+        level: 88,
         experience: "2+ años",
-        projects: "8+ proyectos",
-        description: "Servidor web y proxy reverso"
-      }
-    ]
+        projects: "12+ workflows",
+        description: "Creación de workflows y automatización de procesos",
+      },
+      {
+        name: "Telegram Bot API",
+        level: 85,
+        experience: "1+ año",
+        projects: "8+ integraciones",
+        description: "Integración con Telegram para notificaciones automáticas",
+      },
+      {
+        name: "Email Automation",
+        level: 90,
+        experience: "2+ años",
+        projects: "15+ proyectos",
+        description: "Automatización de envío de emails y newsletters",
+      },
+      {
+        name: "Microsoft SharePoint",
+        level: 80,
+        experience: "1+ año",
+        projects: "6+ integraciones",
+        description: "Integración con Excel Online y automatización de datos",
+      },
+      {
+        name: "Google Drive API",
+        level: 85,
+        experience: "1+ año",
+        projects: "10+ integraciones",
+        description: "Automatización de gestión de archivos y documentos",
+      },
+    ],
   },
   {
     id: "tools",
@@ -142,43 +179,43 @@ const skillCategories = [
     description: "Herramientas de desarrollo y integración de APIs",
     color: "from-orange-500 to-red-500",
     skills: [
-      { 
-        name: "Git", 
-        level: 92, 
+      {
+        name: "Git",
+        level: 92,
         experience: "4+ años",
         projects: "Todo proyecto",
-        description: "Control de versiones y colaboración"
+        description: "Control de versiones y colaboración",
       },
-      { 
-        name: "Postman", 
-        level: 90, 
+      {
+        name: "Postman",
+        level: 90,
         experience: "3+ años",
         projects: "15+ proyectos",
-        description: "Testing y documentación de APIs"
+        description: "Testing y documentación de APIs",
       },
-      { 
-        name: "Swagger", 
-        level: 85, 
+      {
+        name: "Swagger",
+        level: 85,
         experience: "2+ años",
         projects: "10+ proyectos",
-        description: "Documentación automática de APIs"
+        description: "Documentación automática de APIs",
       },
-      { 
-        name: "REST APIs", 
-        level: 95, 
+      {
+        name: "REST APIs",
+        level: 95,
         experience: "3+ años",
         projects: "20+ proyectos",
-        description: "Diseño e implementación de APIs escalables"
-      }
-    ]
-  }
+        description: "Diseño e implementación de APIs escalables",
+      },
+    ],
+  },
 ];
 
 const certificationStats = [
-  { label: "Años de Experiencia", value: "4+", icon: Terminal },
-  { label: "Proyectos Completados", value: "25+", icon: Code },
-  { label: "Certificaciones", value: "8+", icon: Shield },
-  { label: "Tecnologías Dominadas", value: "15+", icon: Cpu }
+  { label: "Años de Experiencia", value: "3+", icon: Terminal },
+  { label: "Proyectos Completados", value: "30+", icon: Code },
+  { label: "Workflows Creados", value: "25+", icon: Zap },
+  { label: "Tecnologías Dominadas", value: "20+", icon: Cpu },
 ];
 
 export default function Skills() {
@@ -186,8 +223,8 @@ export default function Skills() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
@@ -195,8 +232,8 @@ export default function Skills() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -216,8 +253,8 @@ export default function Skills() {
             Tecnologías que <span className="text-primary">Domino</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mi arsenal tecnológico está optimizado para crear backend escalables, 
-            APIs robustas y sistemas que crecen con tu negocio.
+            Mi arsenal tecnológico está optimizado para crear backend
+            escalables, APIs robustas y sistemas que crecen con tu negocio.
           </p>
         </motion.div>
 
@@ -232,11 +269,18 @@ export default function Skills() {
           {certificationStats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
-              <Card key={index} className="text-center border-2 hover:border-primary/20 transition-colors">
+              <Card
+                key={index}
+                className="text-center border-2 hover:border-primary/20 transition-colors"
+              >
                 <CardContent className="pt-6">
                   <IconComponent className="h-8 w-8 text-primary mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl font-bold text-primary mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </CardContent>
               </Card>
             );
@@ -256,13 +300,17 @@ export default function Skills() {
             return (
               <motion.div key={category.id} variants={itemVariants}>
                 <Card className="overflow-hidden">
-                  <CardHeader className={`bg-gradient-to-r ${category.color} text-white`}>
+                  <CardHeader
+                    className={`bg-gradient-to-r ${category.color} text-white`}
+                  >
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-white/20 rounded-lg">
                         <IconComponent className="h-6 w-6" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl mb-2">{category.name}</CardTitle>
+                        <CardTitle className="text-2xl mb-2">
+                          {category.name}
+                        </CardTitle>
                         <p className="text-white/90">{category.description}</p>
                       </div>
                     </div>
@@ -276,15 +324,17 @@ export default function Skills() {
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
-                          transition={{ 
-                            duration: 0.6, 
-                            delay: skillIndex * 0.1 
+                          transition={{
+                            duration: 0.6,
+                            delay: skillIndex * 0.1,
                           }}
                         >
                           {/* Skill Header */}
                           <div className="flex justify-between items-start">
                             <div>
-                              <h4 className="font-semibold text-lg">{skill.name}</h4>
+                              <h4 className="font-semibold text-lg">
+                                {skill.name}
+                              </h4>
                               <p className="text-sm text-muted-foreground mb-2">
                                 {skill.description}
                               </p>
@@ -302,10 +352,10 @@ export default function Skills() {
                                 initial={{ width: 0 }}
                                 whileInView={{ width: `${skill.level}%` }}
                                 viewport={{ once: true }}
-                                transition={{ 
-                                  duration: 1.5, 
+                                transition={{
+                                  duration: 1.5,
                                   delay: skillIndex * 0.1 + 0.3,
-                                  ease: "easeOut"
+                                  ease: "easeOut",
                                 }}
                               />
                             </div>
@@ -315,11 +365,15 @@ export default function Skills() {
                           <div className="flex gap-4 text-sm">
                             <div className="flex items-center gap-1">
                               <Terminal className="h-4 w-4 text-primary" />
-                              <span className="text-muted-foreground">{skill.experience}</span>
+                              <span className="text-muted-foreground">
+                                {skill.experience}
+                              </span>
                             </div>
                             <div className="flex items-center gap-1">
                               <Code className="h-4 w-4 text-primary" />
-                              <span className="text-muted-foreground">{skill.projects}</span>
+                              <span className="text-muted-foreground">
+                                {skill.projects}
+                              </span>
                             </div>
                           </div>
                         </motion.div>
@@ -347,10 +401,14 @@ export default function Skills() {
                 ¿Necesitas estas tecnologías en tu proyecto?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Cada tecnología que domino está respaldada por experiencia real en proyectos de producción.
-                Puedo ayudarte a elegir el stack perfecto para tu proyecto.
+                Cada tecnología que domino está respaldada por experiencia real
+                en proyectos de producción. Puedo ayudarte a elegir el stack
+                perfecto para tu proyecto.
               </p>
-              <Badge variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Badge
+                variant="default"
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+              >
                 <a href="#contact" className="flex items-center gap-2">
                   Hablemos de tu Stack Tecnológico
                   <Zap className="h-4 w-4" />

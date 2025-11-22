@@ -18,6 +18,36 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
+    title: "TecnoPro",
+    shortDesc: "Plataforma para gestión de semilleros de investigación",
+    description:
+      "Desarrollo del sistema TecnoPro, una plataforma para la gestión de semilleros de investigación, orientada a optimizar procesos administrativos, seguimiento de proyectos y vinculación entre estudiantes, docentes y coordinadores.",
+    image: [
+      "img/project/tecnoPro/dashboard.png",
+      "img/project/tecnoPro/estadistica.png",
+      "img/project/tecnoPro/login.png",
+    ],
+    tags: ["Laravel", "PostgreSQL", "Trabajo en equipo"],
+    backendTech: ["Laravel", "PostgreSQL", "API REST", "Autenticación"],
+    features: [
+      "Gestión de semilleros",
+      "Seguimiento de proyectos",
+      "Vinculación estudiante-docente",
+      "Procesos administrativos",
+    ],
+    metrics: {
+      performance: "99.7% uptime",
+      users: "300+ usuarios académicos",
+      transactions: "5K+ proyectos gestionados",
+    },
+    demoUrl: "https://tecnopro.tecnologicocomfenalco.edu.co/login",
+    repoUrl: "#",
+    category: "Education",
+    year: "2024",
+    status: "En producción",
+  },
+  {
+    id: 2,
     title: "E-Factura",
     shortDesc: "Sistema de facturación electrónica empresarial",
     description:
@@ -44,10 +74,10 @@ const projects = [
     repoUrl: "https://github.com/2A2G/E-Factura",
     category: "Enterprise",
     year: "2024",
-    status: "En producción",
+    status: "Completado",
   },
   {
-    id: 2,
+    id: 3,
     title: "StudentChoice",
     shortDesc: "Plataforma de votación estudiantil segura",
     description:
@@ -74,7 +104,7 @@ const projects = [
     repoUrl: "https://github.com/2A2G/StudentChoice",
     category: "Government",
     year: "2023",
-    status: "En producción",
+    status: "Completado",
   },
 ];
 
@@ -291,16 +321,29 @@ export default function Projects() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4">
-                  <Button asChild variant="default" size="lg" className="group">
-                    <Link
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                      Ver Código
-                    </Link>
-                  </Button>
+                  {project.demoUrl !== "#" ? (
+                    <Button asChild variant="default" size="lg" className="group">
+                      <Link
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                        Ver Producto en Vivo
+                      </Link>
+                    </Button>
+                  ) : project.repoUrl !== "#" ? (
+                    <Button asChild variant="default" size="lg" className="group">
+                      <Link
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                        Ver Código
+                      </Link>
+                    </Button>
+                  ) : null}
                   <Button asChild variant="outline" size="lg">
                     <Link href="#contact">
                       Proyecto Similar
