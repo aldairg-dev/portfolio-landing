@@ -39,7 +39,7 @@ const projects = [
     demoUrl: "#",
     repoUrl: "#",
     category: "Mobile",
-    year: "2023-2024",
+    year: "Abril 2025",
     status: "En desarrollo",
   },
   {
