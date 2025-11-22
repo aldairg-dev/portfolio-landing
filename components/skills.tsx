@@ -66,6 +66,13 @@ const skillCategories = [
         projects: "3+ proyectos",
         description: "Aplicaciones empresariales y microservicios",
       },
+      {
+        name: "Astro",
+        level: 75,
+        experience: "6+ meses",
+        projects: "2+ proyectos",
+        description: "Framework moderno para sitios web estáticos y landing pages",
+      },
     ],
   },
   {
@@ -257,9 +264,9 @@ const skillCategories = [
 
 const certificationStats = [
   { label: "Años de Experiencia", value: "3+", icon: Terminal },
-  { label: "Proyectos Completados", value: "25+", icon: Code },
+  { label: "Proyectos Completados", value: "30+", icon: Code },
   { label: "Certificaciones", value: "6+", icon: Shield },
-  { label: "Tecnologías Dominadas", value: "18+", icon: Cpu },
+  { label: "Tecnologías Dominadas", value: "20+", icon: Cpu },
 ];
 
 export default function Skills() {

@@ -44,6 +44,32 @@ const projects = [
   },
   {
     id: 2,
+    title: "MMC - Marine Management Company",
+    shortDesc: "Sitio web corporativo para empresa marítima",
+    description:
+      "Desarrollo del sitio web corporativo para Marine Management Company, empresa especializada en servicios marítimos y logística portuaria. Incluye presentación de servicios, información corporativa y sistema de contacto.",
+    image: ["img/project/marineManagement/home.png"],
+    tags: ["Astro", "TailwindCSS", "Sitio corporativo"],
+    backendTech: ["Astro", "Static Generation", "Optimización SEO"],
+    features: [
+      "Sitio web corporativo",
+      "Presentación de servicios",
+      "Información de empresa",
+      "Sistema de contacto",
+    ],
+    metrics: {
+      performance: "Sitio en producción",
+      users: "Visitas corporativas",
+      transactions: "Contactos empresariales",
+    },
+    demoUrl: "https://mmcshipping.com",
+    repoUrl: "#",
+    category: "Business",
+    year: "2025",
+    status: "En producción",
+  },
+  {
+    id: 3,
     title: "TecnoPro",
     shortDesc: "Plataforma para gestión de semilleros de investigación",
     description:
@@ -66,14 +92,14 @@ const projects = [
       users: "150+ usuarios académicos",
       transactions: "800+ proyectos gestionados",
     },
-    demoUrl: "https://tecnopro.tecnologicocomfenalco.edu.co/login",
+    demoUrl: "https://tecnopro.tecnologicocomfenalco.edu.co",
     repoUrl: "#",
     category: "Education",
-    year: "2024",
+    year: "2023 - 2025",
     status: "En producción",
   },
   {
-    id: 3,
+    id: 4,
     title: "E-Factura",
     shortDesc: "Sistema de facturación electrónica empresarial",
     description:
@@ -97,13 +123,13 @@ const projects = [
       transactions: "Integrado con API Factus",
     },
     demoUrl: "#",
-    repoUrl: "https://github.com/2A2G/E-Factura",
+    repoUrl: "https://github.com/aldairg-dev/E-Factura",
     category: "Enterprise",
     year: "2024",
     status: "Completado",
   },
   {
-    id: 4,
+    id: 5,
     title: "StudentChoice",
     shortDesc: "Plataforma de votación estudiantil segura",
     description:
@@ -127,13 +153,13 @@ const projects = [
       transactions: "1.2K+ votos procesados",
     },
     demoUrl: "#",
-    repoUrl: "https://github.com/2A2G/StudentChoice",
+    repoUrl: "https://github.com/aldairg-dev/StudentChoice",
     category: "Government",
     year: "2023",
     status: "Completado",
   },
   {
-    id: 5,
+    id: 6,
     title: "Let's Guide",
     shortDesc: "Plataforma turística para Cartagena",
     description:
@@ -390,7 +416,9 @@ export default function Projects() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                        Ver Producto en Vivo
+                        {project.category === "Business"
+                          ? "Ver Sitio en Vivo"
+                          : "Ver Producto en Vivo"}
                       </Link>
                     </Button>
                   ) : project.repoUrl !== "#" ? (
