@@ -12,25 +12,26 @@ import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Aldair Gutierrez | Backend Developer & API Architect",
+  title: "Aldair Gutierrez | Desarrollador Full-Stack & DevOps Specialist",
   description:
-    "Desarrollador Backend especializado en APIs escalables, microservicios y arquitecturas distribuidas. Laravel, Spring Boot, Node.js. Servicios profesionales de desarrollo.",
+    "Desarrollador especializado en Backend (Laravel, Node.js), desarrollo móvil (Flutter), automatización (n8n) y containerización (Docker). Servicios profesionales integrales de desarrollo.",
   icons: {
     icon: "img/icon-logotipo.png",
   },
   keywords: [
+    "desarrollador full-stack",
     "backend developer",
-    "API development",
-    "microservices",
+    "flutter developer", 
+    "docker specialist",
     "Laravel developer",
-    "Spring Boot",
-    "database optimization",
-    "cloud architecture",
+    "Node.js developer",
+    "automatización n8n",
+    "Azure cloud",
   ],
   authors: [{ name: "Aldair Gutierrez" }],
   openGraph: {
-    title: "Aldair Gutierrez | Backend Developer",
-    description: "Desarrollador Backend especializado en soluciones escalables",
+    title: "Aldair Gutierrez | Desarrollador Full-Stack & DevOps",
+    description: "Especialista en Backend, Mobile (Flutter), Docker y Automatización",
     type: "website",
   },
 };

@@ -12,9 +12,9 @@ export default function Hero() {
   const [text, setText] = useState("Backend Developer");
   const texts = [
     "Backend Developer", 
-    "API Architect", 
-    "Database Expert",
-    "System Designer"
+    "Full-Stack Developer", 
+    "Laravel Specialist",
+    "DevOps Engineer"
   ];
   const [index, setIndex] = useState(0);
 
@@ -112,8 +112,8 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
             >
-              Transformo ideas complejas en <span className="text-primary font-semibold">arquitecturas backend sólidas</span>. 
-              Especializado en APIs escalables, bases de datos eficientes y sistemas distribuidos que impulsan el éxito de tu negocio.
+              Desarrollador backend con <span className="text-primary font-semibold">3 años de experiencia</span>, especializado en Laravel, Spring Boot y Node.js. 
+              Domino principios SOLID, DDD y metodologías Scrum para crear servicios escalables y bien documentados.
             </motion.p>
 
             {/* Services Icons */}
@@ -125,19 +125,19 @@ export default function Hero() {
             >
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Server className="h-5 w-5 text-primary" />
-                <span>APIs REST</span>
+                <span>Laravel & Spring Boot</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Database className="h-5 w-5 text-primary" />
-                <span>Bases de Datos</span>
+                <span>PostgreSQL & MySQL</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Cloud className="h-5 w-5 text-primary" />
-                <span>Cloud Services</span>
+                <span>Docker & Azure</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Code className="h-5 w-5 text-primary" />
-                <span>Microservicios</span>
+                <span>APIs RESTful</span>
               </div>
             </motion.div>
 

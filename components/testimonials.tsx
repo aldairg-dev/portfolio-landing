@@ -9,71 +9,83 @@ import { Star, Quote, Building, MapPin } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Carlos Mendoza",
-    role: "CTO",
-    company: "TechStart Solutions",
-    location: "Bogotá, Colombia",
-    avatar: "/placeholder.svg?height=64&width=64&text=CM",
+    name: "Edwin Torres Muñiz",
+    role: "Backend Developer",
+    company: "Java, Spring Boot, PHP, Laravel",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=ET",
     rating: 5,
-    testimonial: "Aldair transformó completamente nuestra arquitectura backend. Su conocimiento en Laravel y PostgreSQL nos permitió escalar de 1,000 a 50,000 usuarios sin problemas de rendimiento. Altamente recomendado.",
-    project: "API E-commerce Platform",
-    results: ["300% mejora en performance", "0 downtime en 6 meses", "Reducción del 60% en costos de servidor"]
+    testimonial: "Trabajar con Aldair ha sido una experiencia muy positiva, más allá del gran talento que tiene para el desarrollo backend lo que realmente lo hace destacar es la gran capacidad que tiene para convertir los retos y obstáculos en oportunidades.",
+    project: "Desarrollo de base de datos",
+    results: ["Conversión de retos en oportunidades", "Participación indispensable", "Gran talento backend"]
   },
   {
     id: 2,
-    name: "María González",
-    role: "Product Manager",
-    company: "FinanceFlow",
-    location: "Madrid, España", 
-    avatar: "/placeholder.svg?height=64&width=64&text=MG",
+    name: "Carlos De La Rosa",
+    role: "Desarrollador de Software",
+    company: "Desarrollo de aplicaciones",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=CD",
     rating: 5,
-    testimonial: "La implementación de nuestro sistema de facturación electrónica fue impecable. Aldair entendió perfectamente los requerimientos fiscales y entregó una solución robusta que cumple con todas las normativas.",
-    project: "Sistema de Facturación Electrónica",
-    results: ["100% compliance fiscal", "Reducción del 80% en tiempo de facturación", "Integración perfecta con APIs gubernamentales"]
+    testimonial: "Trabajar con Aldair fue muy positivo. Destacó por su capacidad para adaptarse rápidamente, resolver problemas con eficacia y mantener una comunicación clara. Su enfoque en la calidad del código y su compromiso con el proyecto fueron claves.",
+    project: "Desarrollo de aplicaciones",
+    results: ["Adaptación rápida", "Comunicación clara", "Calidad del código", "Compromiso total"]
   },
   {
     id: 3,
-    name: "Roberto Silva",
-    role: "Founder & CEO",
-    company: "EduTech Innovation",
-    location: "Medellín, Colombia",
-    avatar: "/placeholder.svg?height=64&width=64&text=RS",
+    name: "Adrian Castro",
+    role: "Desarrollador Back-end",
+    company: "Desarrollo de aplicaciones",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=AC",
     rating: 5,
-    testimonial: "El sistema de votación que desarrolló Aldair para nuestra plataforma educativa es excepcional. La seguridad, transparencia y facilidad de uso superaron nuestras expectativas. Un profesional de primer nivel.",
-    project: "Plataforma de Votación Estudiantil",
-    results: ["99.9% uptime", "5,000+ votos procesados sin errores", "Auditoría completa implementada"]
+    testimonial: "Tuve la oportunidad de trabajar con Aldair en el desarrollo de aplicaciones y fue una experiencia altamente positiva. Se destaca por su sólida capacidad técnica, su enfoque en crear soluciones de calidad y su constante disposición para colaborar.",
+    project: "Desarrollo de aplicaciones",
+    results: ["Sólida capacidad técnica", "Soluciones de calidad", "Excelente colaboración", "Trabajo en equipo"]
   },
   {
     id: 4,
-    name: "Ana Martínez",
-    role: "Lead Developer",
-    company: "CloudWorks International",
-    location: "Barcelona, España",
-    avatar: "/placeholder.svg?height=64&width=64&text=AM",
+    name: "Carlos Escobar",
+    role: "Desarrollador Frontend",
+    company: "Laravel | PHP | Vue.js | Soluciones eficientes y escalables",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=CE",
     rating: 5,
-    testimonial: "Trabajar con Aldair en la migración a microservicios fue una experiencia extraordinaria. Su conocimiento en Spring Boot y Docker nos ayudó a modernizar nuestra arquitectura de manera eficiente.",
-    project: "Migración a Microservicios",
-    results: ["Arquitectura escalable", "Deployment automatizado", "Monitoring distribuido implementado"]
+    testimonial: "Con Aldair ha avanzado de manera positiva. Desde el inicio, hemos logrado establecer una comunicación fluida y una buena distribución de tareas. Aldair ha demostrado compromiso y responsabilidad, aportando ideas útiles y cumpliendo con los plazos establecidos.",
+    project: "Desarrollo de aplicaciones",
+    results: ["Comunicación fluida", "Buena distribución de tareas", "Compromiso y responsabilidad", "Cumplimiento de plazos"]
   },
   {
     id: 5,
-    name: "Luis Hernández",
-    role: "IT Director",
-    company: "RetailMax Corp",
-    location: "Ciudad de México, México",
-    avatar: "/placeholder.svg?height=64&width=64&text=LH",
+    name: "Jeyson Miranda",
+    role: "Tecnólogo en Desarrollo de Software",
+    company: "Especialista en Back-End | Java, Python, Laravel, SQL",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=JM",
     rating: 5,
-    testimonial: "La optimización de nuestra base de datos PostgreSQL realizada por Aldair resultó en una mejora dramática del rendimiento. Las consultas que antes tomaban minutos ahora se ejecutan en segundos.",
-    project: "Optimización de Base de Datos",
-    results: ["95% reducción en tiempo de consultas", "Indexación optimizada", "Queries complejas optimizadas"]
+    testimonial: "Trabajar con Aldair ha sido una experiencia excelente. Desde el inicio del proyecto demostró una gran capacidad técnica, especialmente en desarrollo backend, y siempre estuvo dispuesto a proponer soluciones eficaces ante los desafíos que surgieron.",
+    project: "Desarrollo de base de datos",
+    results: ["Gran capacidad técnica", "Soluciones eficaces", "Comunicación constante", "Compromiso con la calidad"]
+  },
+  {
+    id: 6,
+    name: "Martin Medrano",
+    role: "Desarrollador Frontend",
+    company: "React · Next.js · Node.js",
+    location: "Colombia",
+    avatar: "/placeholder.svg?height=64&width=64&text=MM",
+    rating: 5,
+    testimonial: "Tuve la oportunidad de trabajar con Aldair como desarrollador web y fue una experiencia excelente. Destaca por su habilidad técnica, su enfoque en la calidad del código y su disposición para colaborar y aportar soluciones efectivas.",
+    project: "Desarrollo web",
+    results: ["Habilidad técnica destacada", "Calidad del código", "Colaboración efectiva", "Gran espíritu de equipo"]
   }
 ];
 
 const stats = [
-  { label: "Clientes Satisfechos", value: "25+", icon: "👥" },
-  { label: "Proyectos Completados", value: "50+", icon: "🚀" },
-  { label: "Años de Experiencia", value: "3+", icon: "⭐" },
-  { label: "Tasa de Éxito", value: "100%", icon: "✅" }
+  { label: "Valoración Promedio", value: "4.9/5", icon: "⭐" },
+  { label: "Reseñas Reales", value: "6", icon: "💬" },
+  { label: "Colaboradores", value: "15+", icon: "👥" },
+  { label: "Satisfacción", value: "100%", icon: "✅" }
 ];
 
 export default function Testimonials() {
@@ -110,11 +122,11 @@ export default function Testimonials() {
             Testimonios
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Lo que dicen mis <span className="text-primary">Clientes</span>
+            Lo que dicen mis <span className="text-primary">Colaboradores</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            La mejor validación de mi trabajo son las palabras de quienes han confiado en mí.
-            Cada proyecto es una oportunidad de crear valor real para los negocios.
+            Reseñas reales de LinkedIn de desarrolladores que han trabajado conmigo.
+            Su experiencia trabajando en equipo es la mejor validación de mi profesionalismo.
           </p>
         </motion.div>
 

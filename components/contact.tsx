@@ -74,9 +74,9 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email",
-    value: "aldairg.dev@gmail.com",
+    value: "aldairgguer@gmail.com",
     description: "Respuesta en 24 horas",
-    action: "mailto:aldairg.dev@gmail.com",
+    action: "mailto:aldairgguer@gmail.com",
   },
   {
     icon: MessageSquare,

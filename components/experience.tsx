@@ -10,16 +10,16 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Briefcase, 
-  GraduationCap, 
-  Award, 
+import {
+  Briefcase,
+  GraduationCap,
+  Award,
   Calendar,
   MapPin,
   ExternalLink,
   Code,
   Building,
-  Clock
+  Clock,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
@@ -27,48 +27,56 @@ import Link from "next/link";
 const workExperience = [
   {
     id: 1,
-    role: "Desarrollador PHP Freelance",
-    company: "Home Select",
-    location: "Madrid, España",
-    period: "Agosto 2024 - Noviembre 2024",
-    type: "Remoto",
+    role: "Líder Desarrollador Full Stack",
+    company: "Plaza Innova, Tecno Comfenalco",
+    location: "Cartagena, Colombia",
+    period: "2023 - 2025",
+    type: "Presencial",
     description:
-      "Desarrollo e implementación de nuevas funcionalidades críticas utilizando PHP y Yii Framework. Mejora significativa en la eficiencia del sistema y optimización de procesos. Implementación de QA para garantizar alta calidad del software.",
-    technologies: ["PHP", "Yii Framework", "MySQL", "JavaScript", "HTML/CSS"],
+      "Liderazgo técnico en el desarrollo de módulos backend con Laravel y maquetación con TailwindCSS. Gestión de requerimientos técnicos con stakeholders, coordinación de despliegues en producción y capacitación técnica a usuarios finales.",
+    technologies: ["Laravel", "TailwindCSS", "PHP", "MySQL", "Git"],
     achievements: [
-      "Reducción del 40% en tiempo de respuesta",
-      "Implementación de 15+ nuevas funcionalidades",
-      "100% de pruebas QA exitosas"
-    ]
+      "Coordinación exitosa de despliegues en producción",
+      "Gestión de requerimientos con stakeholders",
+      "Capacitación técnica a usuarios finales",
+      "Alineación con objetivos de negocio"
+    ],
   },
   {
     id: 2,
-    role: "Pasante de Desarrollo de Software",
-    company: "Fundación Universitaria Tecnológico Comfenalco",
-    location: "Cartagena, Colombia",
-    period: "Agosto 2023 - Presente",
-    type: "Híbrido",
+    role: "Desarrollador PHP Freelance",
+    company: "Home Select",
+    location: "Madrid, España",
+    period: "2024",
+    type: "Remoto",
     description:
-      "Desarrollo backend especializado en Laravel, contribuyendo a módulos críticos para aplicaciones administrativas institucionales. Enfoque en arquitectura limpia, código escalable y mejores prácticas de desarrollo.",
-    technologies: ["Laravel", "PHP", "PostgreSQL", "Git", "Docker"],
+      "Desarrollo de funcionalidades backend con PHP y Yii Framework en equipo internacional bajo metodología Scrum. Participación en code reviews, gestión de despliegues y reuniones técnicas con stakeholders para alinear requerimientos con objetivos de negocio.",
+    technologies: ["PHP", "Yii Framework", "MySQL", "Scrum"],
     achievements: [
-      "Desarrollo de 5+ módulos administrativos",
-      "Implementación de mejores prácticas",
-      "Optimización de procesos internos"
+      "Colaboración en equipo internacional",
+      "Implementación de metodología Scrum",
+      "Code reviews y despliegues exitosos",
+      "Alineación de requerimientos técnicos"
     ]
-  }
+  },
 ];
 
 const education = [
   {
     id: 1,
-    degree: "Ingeniería de Software",
+    degree: "Ingeniería de Sistemas",
     institution: "Fundación Universitaria Tecnológico Comfenalco",
     location: "Cartagena de Indias, Colombia",
     period: "2024 - Presente",
     status: "En curso",
-    description: "Formación avanzada en arquitecturas de software, desarrollo escalable, metodologías ágiles y gestión de proyectos tecnológicos.",
-    focus: ["Arquitectura de Software", "Metodologías Ágiles", "Gestión de Proyectos", "DevOps"]
+    description:
+      "Formación avanzada en arquitecturas de software, desarrollo escalable, metodologías ágiles y gestión de proyectos tecnológicos.",
+    focus: [
+      "Arquitectura de Software",
+      "Metodologías Ágiles", 
+      "Gestión de Proyectos",
+      "DevOps",
+    ],
   },
   {
     id: 2,
@@ -77,9 +85,15 @@ const education = [
     location: "Cartagena de Indias, Colombia",
     period: "2021 - 2024",
     status: "Graduado",
-    description: "Especialización en desarrollo backend con Laravel, PHP y bases de datos. Implementación de APIs RESTful y optimización de sistemas empresariales.",
-    focus: ["Laravel Development", "API REST", "Bases de Datos", "Backend Development"]
-  }
+    description:
+      "Especialización en desarrollo backend con Laravel, PHP y bases de datos. Implementación de APIs RESTful y optimización de sistemas empresariales.",
+    focus: [
+      "Laravel Development",
+      "API REST",
+      "Bases de Datos",
+      "Backend Development",
+    ],
+  },
 ];
 
 const certifications = [
@@ -89,9 +103,11 @@ const certifications = [
     institution: "Future Tales",
     issued: "Junio 2025",
     category: "Inteligencia Artificial",
-    credentialUrl: "https://www.linkedin.com/in/aldair-gutierrez-guerrero/overlay/1757697230288/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
-    description: "Bootcamp intensivo en IA y Data Science con proyectos prácticos de machine learning y algoritmos.",
-    skills: ["Machine Learning", "Data Science", "Python", "Algoritmos"]
+    credentialUrl:
+      "https://www.linkedin.com/in/aldair-gutierrez-guerrero/overlay/1757697230288/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
+    description:
+      "Bootcamp intensivo en IA y Data Science con proyectos prácticos de machine learning y algoritmos.",
+    skills: ["Machine Learning", "Data Science", "Python", "Algoritmos"],
   },
   {
     id: 2,
@@ -100,9 +116,11 @@ const certifications = [
     issued: "Febrero 2025",
     category: "Cloud Computing",
     credentialId: "4EC3XQI4PWCC",
-    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/4EC3XQI4PWCC",
-    description: "Fundamentos de Google Cloud: redes, almacenamiento y computación en la nube.",
-    skills: ["Google Cloud", "Cloud Computing", "Infrastructure", "DevOps"]
+    credentialUrl:
+      "https://www.coursera.org/account/accomplishments/verify/4EC3XQI4PWCC",
+    description:
+      "Fundamentos de Google Cloud: redes, almacenamiento y computación en la nube.",
+    skills: ["Google Cloud", "Cloud Computing", "Infrastructure", "DevOps"],
   },
   {
     id: 3,
@@ -110,9 +128,11 @@ const certifications = [
     institution: "MinTIC Colombia",
     issued: "Febrero 2025",
     category: "Gestión IT",
-    credentialUrl: "https://lms.mintic.gov.co/mod/customcert/verify_certificate.php?contextid=98190&code=nbDyeH30fq&qrcode=1",
-    description: "Estrategias para planificación y gestión eficiente de tecnologías de la información.",
-    skills: ["IT Strategy", "Project Management", "Digital Transformation"]
+    credentialUrl:
+      "https://lms.mintic.gov.co/mod/customcert/verify_certificate.php?contextid=98190&code=nbDyeH30fq&qrcode=1",
+    description:
+      "Estrategias para planificación y gestión eficiente de tecnologías de la información.",
+    skills: ["IT Strategy", "Project Management", "Digital Transformation"],
   },
   {
     id: 4,
@@ -120,10 +140,36 @@ const certifications = [
     institution: "HALLTEC",
     issued: "Febrero 2025",
     category: "Fintech",
-    credentialUrl: "https://www.linkedin.com/in/aldair-gutierrez-guerrero/details/certifications/1739333235629/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
-    description: "Implementación de facturación electrónica cumpliendo normativas vigentes.",
-    skills: ["Electronic Billing", "API Integration", "Compliance", "PHP"]
-  }
+    credentialUrl:
+      "https://www.linkedin.com/in/aldair-gutierrez-guerrero/details/certifications/1739333235629/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
+    description:
+      "Implementación de facturación electrónica cumpliendo normativas vigentes.",
+    skills: ["Electronic Billing", "API Integration", "Compliance", "PHP"],
+  },
+  {
+    id: 5,
+    title: "Fundamentos de Node.js",
+    institution: "Platzi",
+    issued: "2024",
+    category: "Backend Development",
+    credentialUrl:
+      "https://www.linkedin.com/in/aldair-gutierrez-guerrero/details/certifications/1739336250158/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
+    description:
+      "Fundamentos completos de Node.js incluyendo módulos, NPM, servidor HTTP y desarrollo de APIs.",
+    skills: ["Node.js", "JavaScript", "NPM", "API Development", "Backend"],
+  },
+  {
+    id: 6,
+    title: "Git y GitHub",
+    institution: "Platzi",
+    issued: "2024",
+    category: "Development Tools",
+    credentialUrl:
+      "https://www.linkedin.com/in/aldair-gutierrez-guerrero/details/certifications/1739336282386/single-media-viewer/?profileId=ACoAAEL2hPABqvI2KXFpa4hljmfUNpUWdH2FO6E",
+    description:
+      "Dominio completo de Git y GitHub para control de versiones, colaboración en equipo y gestión de repositorios.",
+    skills: ["Git", "GitHub", "Version Control", "Collaboration", "DevOps"],
+  },
 ];
 
 export default function Experience() {
@@ -131,8 +177,8 @@ export default function Experience() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
@@ -140,8 +186,8 @@ export default function Experience() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -161,8 +207,9 @@ export default function Experience() {
             Experiencia & <span className="text-primary">Formación</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mi crecimiento profesional y académico reflejado en proyectos reales,
-            certificaciones reconocidas y una formación continua en tecnologías backend.
+            Mi crecimiento profesional y académico reflejado en proyectos
+            reales, certificaciones reconocidas y una formación continua en
+            tecnologías backend.
           </p>
         </motion.div>
 
@@ -176,7 +223,10 @@ export default function Experience() {
               <GraduationCap className="h-4 w-4" />
               <span className="hidden sm:inline">Educación</span>
             </TabsTrigger>
-            <TabsTrigger value="certifications" className="flex items-center gap-2">
+            <TabsTrigger
+              value="certifications"
+              className="flex items-center gap-2"
+            >
               <Award className="h-4 w-4" />
               <span className="hidden sm:inline">Certificaciones</span>
             </TabsTrigger>
@@ -198,7 +248,10 @@ export default function Experience() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <Building className="h-5 w-5 text-primary" />
-                            <Badge variant="outline" className="text-primary border-primary">
+                            <Badge
+                              variant="outline"
+                              className="text-primary border-primary"
+                            >
                               {job.type}
                             </Badge>
                           </div>
@@ -226,7 +279,7 @@ export default function Experience() {
                       <p className="text-muted-foreground mb-6 leading-relaxed">
                         {job.description}
                       </p>
-                      
+
                       {/* Technologies */}
                       <div className="mb-6">
                         <h4 className="font-semibold mb-3 flex items-center gap-2">
@@ -279,9 +332,17 @@ export default function Experience() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
                             <GraduationCap className="h-5 w-5 text-primary" />
-                            <Badge 
-                              variant={edu.status === "Graduado" ? "default" : "secondary"}
-                              className={edu.status === "Graduado" ? "bg-green-500 hover:bg-green-600" : ""}
+                            <Badge
+                              variant={
+                                edu.status === "Graduado"
+                                  ? "default"
+                                  : "secondary"
+                              }
+                              className={
+                                edu.status === "Graduado"
+                                  ? "bg-green-500 hover:bg-green-600"
+                                  : ""
+                              }
                             >
                               {edu.status}
                             </Badge>
@@ -310,14 +371,18 @@ export default function Experience() {
                       <p className="text-muted-foreground mb-6 leading-relaxed">
                         {edu.description}
                       </p>
-                      
+
                       <div>
                         <h4 className="font-semibold mb-3 text-primary">
                           Áreas de Enfoque
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {edu.focus.map((area) => (
-                            <Badge key={area} variant="outline" className="border-primary text-primary">
+                            <Badge
+                              key={area}
+                              variant="outline"
+                              className="border-primary text-primary"
+                            >
                               {area}
                             </Badge>
                           ))}
@@ -366,19 +431,30 @@ export default function Experience() {
                       <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                         {cert.description}
                       </p>
-                      
+
                       <div className="mb-4">
-                        <h5 className="font-medium mb-2 text-sm">Habilidades</h5>
+                        <h5 className="font-medium mb-2 text-sm">
+                          Habilidades
+                        </h5>
                         <div className="flex flex-wrap gap-1">
                           {cert.skills.map((skill) => (
-                            <Badge key={skill} variant="outline" className="text-xs">
+                            <Badge
+                              key={skill}
+                              variant="outline"
+                              className="text-xs"
+                            >
                               {skill}
                             </Badge>
                           ))}
                         </div>
                       </div>
 
-                      <Button asChild variant="outline" size="sm" className="w-full group">
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="w-full group"
+                      >
                         <Link
                           href={cert.credentialUrl}
                           target="_blank"
