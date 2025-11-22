@@ -22,16 +22,12 @@ const projects = [
     shortDesc: "Aplicación móvil con IA para estudiantes de farmacia",
     description:
       "PharmaGuide es una aplicación móvil avanzada con inteligencia artificial integrada y sistema de cache optimizado, diseñada para estudiantes de Química Farmacéutica. Proporciona información automatizada sobre medicamentos mediante IA y herramientas inteligentes de aprendizaje.",
-    image: [
-      "/placeholder.svg?height=400&width=600&text=PharmaGuide+Dashboard",
-      "/placeholder.svg?height=400&width=600&text=PharmaGuide+IA",
-      "/placeholder.svg?height=400&width=600&text=PharmaGuide+Mobile",
-    ],
+    image: ["img/project/pharmaGuide/pharmaGuide.png"],
     tags: ["Flutter", "Node.js", "Express.js", "Prisma ORM", "IA"],
     backendTech: ["Node.js", "Express.js", "Prisma ORM", "PostgreSQL"],
     features: [
       "Inteligencia artificial integrada",
-      "Sistema de cache optimizado", 
+      "Sistema de cache optimizado",
       "Información automatizada de medicamentos",
       "Herramientas de aprendizaje inteligente",
     ],
@@ -382,7 +378,12 @@ export default function Projects() {
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4">
                   {project.demoUrl !== "#" ? (
-                    <Button asChild variant="default" size="lg" className="group">
+                    <Button
+                      asChild
+                      variant="default"
+                      size="lg"
+                      className="group"
+                    >
                       <Link
                         href={project.demoUrl}
                         target="_blank"
@@ -393,7 +394,12 @@ export default function Projects() {
                       </Link>
                     </Button>
                   ) : project.repoUrl !== "#" ? (
-                    <Button asChild variant="default" size="lg" className="group">
+                    <Button
+                      asChild
+                      variant="default"
+                      size="lg"
+                      className="group"
+                    >
                       <Link
                         href={project.repoUrl}
                         target="_blank"
